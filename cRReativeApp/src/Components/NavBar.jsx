@@ -1,16 +1,23 @@
-function NavBar() {
-  const navButtons = ['Home', 'News', 'Sign in', 'Log In'];
+// import logo from '../assets/pageLogo.svg'
+
+import { useNavigate } from "react-router-dom";
+
+export default function NavBar() {
+  const navigate = useNavigate();
+  // const urlLogo = logo
+  {/* <img src={urlLogo} alt="logo" id='mainLogo'/> */}
   return (
-    <div className='navBar'>
-      {
-        navButtons.map((label) => (
-          <button key={label} className='navBarButtons'>
-            {label}
-          </button>
-        ))
-      }
-    </div>
+    <header>
+      <div className='navBar'>
+        <button onClick={() => navigate('/Test')}>Test Page</button>
+        <button onClick={() => navigate('/')}>Home</button>
+        <button onClick={() => navigate('/News')}>News</button>
+        <button onClick={() => navigate('/SignUp')}>Sign Up</button>
+        <button onClick={() => navigate('/Login')}>Log In</button>
+      </div>
+    </header>
+
   )
 }
 
-export default NavBar
+

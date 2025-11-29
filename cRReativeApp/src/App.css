@@ -2,11 +2,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(29, 28, 28);
+  background-color: rgb(167, 167, 167);
 }
 
 .navBar {
-  background-color: rgb(45, 77, 77);
+  background-color: rgb(186, 241, 255);
   padding: 10px;
   display: flex;
   justify-content: flex-end;
@@ -23,3 +23,20 @@ body {
   float: right;
   color: aliceblue;
 }
+
+#counter {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+}
+
+#demoMessage {
+  color: rgb(44, 0, 0);
+  font-size: 20px;
+}
+
+/* #mainLogo {
+  width: 200px;
+  /* position: absolute; */
+  /* left: -10px;
+  top: 97px */
+/* }
