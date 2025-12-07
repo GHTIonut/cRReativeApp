@@ -1,16 +1,22 @@
-import { use, useState } from "react";
+import { useState } from "react";
 
 export default function SignUp() {
         const [user, setUser] = useState({
             username: "",
             password: "",
-            email: ""
+            email: "",
         });
 
         const [message, setMessage] = useState("");
     
         const postAccount = (event) => {
             event.preventDefault();
+
+            if (!user.username || !user.password || !user.email) {
+                setMessage("Please fill in all fields.");
+                return;
+            }
+
             fetch("http://localhost:3000/accounts", {
                 method: "POST",
                 headers: {
@@ -22,7 +28,7 @@ export default function SignUp() {
                 if (!response.ok) {
                     throw new Error("Error")
                 } 
-                return response.json();
+                return response.json({});
             })
             .then((data) => {
                 console.log("Account created:", data);
@@ -30,7 +36,7 @@ export default function SignUp() {
                 setUser({
                     username: "",
                     password: "",
-                    email: ""
+                    email: "",
                 });
             })
             .catch((error) => {
@@ -44,6 +50,7 @@ export default function SignUp() {
             <h1>Register Page</h1>
             <label htmlFor="username">Username:</label>
             <input
+                required
                 className="registerInput"
                 name="username"
                 type="text"
@@ -52,6 +59,7 @@ export default function SignUp() {
             />
             <label htmlFor="password">Password:</label>
             <input
+                required
                 className="registerInput"
                 name="password"
                 type="password"
@@ -60,6 +68,7 @@ export default function SignUp() {
             />
             <label htmlFor="email">E-mail:</label>
             <input
+                required
                 className="registerInput"
                 name="email"
                 type="email"
