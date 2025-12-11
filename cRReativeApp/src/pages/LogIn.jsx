@@ -33,7 +33,6 @@ export default function LogIn() {
       .then((res) => res.json())
       .then((data) => {
         if (data.token) {
-          // ✅ Folosim logIn din AuthContext
           logIn(data.token, data.user);
           alert("Logged in!");
         } else {
