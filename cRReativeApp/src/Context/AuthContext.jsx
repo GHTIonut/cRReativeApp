@@ -13,6 +13,7 @@ export function AuthProvider({ children }) {
     setUser(userData);
     setLoggedIn(true);
     localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(userData));
   }
 
   function logOut() {
@@ -20,19 +21,24 @@ export function AuthProvider({ children }) {
     setUser(null);
     setLoggedIn(false);
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
   }
 
   useEffect(() => {
     function checkToken() {
       const storedToken = localStorage.getItem("token");
-      if (storedToken) {
-        setToken(storedToken);
-        setUser(null);
-        setLoggedIn(true);
-      } else {
-        setToken(null);
-        setUser(null);
-        setLoggedIn(false);
+      const storedUser = localStorage.getItem("user");
+      if (storedToken && storedUser) {
+        try {
+          setToken(storedToken);
+          setUser(JSON.parse(storedUser));
+          setLoggedIn(true);
+        } catch {
+          console.error("Invalid user JSON:", storedUser);
+          localStorage.removeItem("user");
+          setUser(null);
+          setLoggedIn(false);
+        }
       }
     }
     checkToken();
