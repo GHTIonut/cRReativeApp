@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn() {
   const { logIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     email: "",
@@ -35,6 +37,7 @@ export default function LogIn() {
         if (data.token) {
           logIn(data.token, data.user);
           alert("Logged in!");
+          navigate("./Profile");
         } else {
           alert(data.message);
         }
