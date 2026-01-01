@@ -1,16 +1,13 @@
 // import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import "./App.css";
 import NavBar from "./Components/NavBar";
-// import Counter from './Components/useStateCounter'
-// import InputSection from './Components/InputSection'
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import LogIn from "./pages/LogIn.jsx";
 import News from "./pages/News.jsx";
 import Test from "./pages/Test.jsx";
+import { Profile } from "./pages/Profile.jsx";
 
 export default function App() {
   return (
@@ -22,8 +19,8 @@ export default function App() {
         <Route path="/News" element={<News />} />
         <Route path="/Login" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
-      {/* <Counter/> */}
     </>
   );
 }

@@ -37,7 +37,7 @@ export default function LogIn() {
         if (data.token) {
           logIn(data.token, data.user);
           alert("Logged in!");
-          navigate("./Profile");
+          navigate("/Profile");
         } else {
           alert(data.message);
         }
