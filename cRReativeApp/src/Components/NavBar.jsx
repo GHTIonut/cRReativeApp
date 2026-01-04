@@ -1,22 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { useContext } from "react";
+import pageLogo1 from "../assets/pageLogo1.png";
 
 export function LoggedOutStatus({ navigate }) {
   return (
     <>
-      <button onClick={() => navigate("/SignUp")}>Sign Up</button>
-      <button onClick={() => navigate("/Login")}>Log In</button>
+      <button onClick={() => navigate("/SignUp")} className="signUpButton">
+        Sign Up
+      </button>
+      <button onClick={() => navigate("/Login")} className="logInButton">
+        Log In
+      </button>
     </>
   );
 }
 
-export function LoggedInStatus({ navigate, user, logOut }) {
+export function LoggedInStatus({ navigate, logOut }) {
   return (
     <>
-      <button onClick={() => navigate("/MyAccount")}>My Account</button>
-      <span>Hello, {user?.username}</span>
-      <button onClick={logOut}>Log Out</button>
+      <button onClick={() => navigate("/Profile")}>My Account</button>
+      <button onClick={logOut} className="logOutButton">
+        Log Out
+      </button>
     </>
   );
 }
@@ -36,9 +42,14 @@ export default function NavBar() {
   return (
     <header>
       <div className="navBar">
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/News")}>News</button>
-        {renderAuthSection()}
+        <div>
+          <img src={pageLogo1} alt="asdas" className="pageLogo" />
+        </div>
+        <div className="navBarDivButtons">
+          <button onClick={() => navigate("/")}>Home</button>
+          <button onClick={() => navigate("/News")}>News</button>
+          {renderAuthSection()}
+        </div>
       </div>
     </header>
   );
