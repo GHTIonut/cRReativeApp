@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "../styles/profile.css";
 
 export function Profile() {
   const { user } = useContext(AuthContext);
