@@ -1,10 +1,10 @@
 import "../styles/home.css";
-import SideBar from "../Components/SideBar.jsx";
+// import SideBar from "../Components/SideBar.jsx";
 
 export default function Home() {
   return (
     <div>
-      <SideBar />
+      {/* <SideBar /> */}
       <div className="homePageContent">
         <div>
           <h1>Welcome to your zodiac space.</h1>

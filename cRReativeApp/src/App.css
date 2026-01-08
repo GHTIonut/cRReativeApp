@@ -2,7 +2,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgba(193, 235, 255, 0.781);
+  /* background-color: rgba(193, 235, 255, 0.781); */
+
+  background-image: url("/public/Background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 

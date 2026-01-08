@@ -1,11 +1,12 @@
 .homePageContent {
-  /* background-color: cadetblue; */
   font-size: 1.3rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color: rgb(98, 218, 255) ;
+  background-color: rgba(0, 44, 58, 0.856) ;
+  color: aliceblue;
   text-indent: 2em;
   width: 70%;
   justify-self: center;
   align-content: center;
   justify-items: center;
+  border-radius: 20px;
 }

@@ -1,0 +1,30 @@
+.horoscopeMenu {
+    background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 90px);
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+    
+}
+
+.horoscopeMenu button {
+    width: 10rem;
+    height: 2rem;
+    border: solid 1px azure;
+    border-radius: 10px;
+    color: azure;
+    background-color: rgb(0, 69, 116);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0rem 1.2rem 0rem 1.2rem;
+}
+
+.horoscopeMenu button:hover {
+    background-color: rgb(0, 206, 221);
+    color: black;
+    border: solid 1px black;
+}

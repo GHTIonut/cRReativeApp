@@ -20,7 +20,9 @@ export function LoggedOutStatus({ navigate }) {
 export function LoggedInStatus({ navigate, logOut }) {
   return (
     <>
-      <button onClick={() => navigate("/Profile")}>My Account</button>
+      <button onClick={() => navigate("/Profile")} className="profileButton">
+        My Account
+      </button>
       <button onClick={logOut} className="logOutButton">
         Log Out
       </button>
@@ -48,6 +50,7 @@ export default function NavBar() {
         </div>
         <div className="navBarDivButtons">
           <button onClick={() => navigate("/")}>Home</button>
+          <button onClick={() => navigate("/Horoscope")}>Horoscope</button>
           <button onClick={() => navigate("/News")}>News</button>
           {renderAuthSection()}
         </div>
