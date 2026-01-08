@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "../styles/logIn.css";
 
 export default function LogIn() {
   const { logIn } = useContext(AuthContext);
@@ -46,9 +47,9 @@ export default function LogIn() {
   }
 
   return (
-    <div>
+    <div className="logInContainer">
       <h1>Log in page</h1>
-      <form>
+      <form className="logInFormContainer" onSubmit={log}>
         <label>
           E-mail
           <input
@@ -69,9 +70,7 @@ export default function LogIn() {
           />
         </label>
 
-        <button type="submit" onClick={log}>
-          Log in
-        </button>
+        <button type="submit">Log in</button>
       </form>
     </div>
   );

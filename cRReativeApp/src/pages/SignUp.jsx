@@ -1,10 +1,15 @@
 import { useState } from "react";
+import "../styles/signUp.css";
 
 export default function SignUp() {
   const [user, setUser] = useState({
     username: "",
     password: "",
     email: "",
+    birthday: "",
+    minute: "",
+    second: "",
+    gender: "",
   });
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -55,6 +60,10 @@ export default function SignUp() {
           username: "",
           password: "",
           email: "",
+          birthday: "",
+          minute: "",
+          second: "",
+          gender: "",
         });
       })
       .catch((error) => {
@@ -63,36 +72,83 @@ export default function SignUp() {
       });
   };
   return (
-    <div>
-      <form action="">
+    <div className="signUpContainer">
+      <form action="" className="signUpFormContainer">
         <h1>Register Page</h1>
-        <label htmlFor="username">Username:</label>
-        <input
-          required
-          className="registerInput"
-          name="username"
-          type="text"
-          value={user.username}
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          required
-          className="registerInput"
-          name="password"
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
-        <label htmlFor="email">E-mail:</label>
-        <input
-          required
-          className="registerInput"
-          name="email"
-          type="email"
-          value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
+        <label htmlFor="username">
+          Username:
+          <input
+            required
+            className="registerInput"
+            name="username"
+            type="text"
+            value={user.username}
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
+          />
+        </label>
+        <label htmlFor="password">
+          Password:
+          <input
+            required
+            className="registerInput"
+            name="password"
+            type="password"
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+          />
+        </label>
+        <label htmlFor="email">
+          E-mail:
+          <input
+            required
+            className="registerInput"
+            name="email"
+            type="email"
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+          />
+        </label>
+        <label htmlFor="birthday">
+          Birthday
+          <input
+            type="date"
+            name="birthday"
+            value={user.birthday}
+            onChange={(e) => setUser({ ...user, birthday: e.target.value })}
+          />
+        </label>
+
+        <label htmlFor="minute">
+          Birthday minute
+          <input
+            type="number"
+            name="minute"
+            value={user.minute}
+            onChange={(e) => setUser({ ...user, minute: e.target.value })}
+          />
+        </label>
+
+        <label htmlFor="second">
+          Birthday second
+          <input
+            type="number"
+            name="second"
+            value={user.second}
+            onChange={(e) => setUser({ ...user, second: e.target.value })}
+          />
+        </label>
+        <label htmlFor="gender">
+          Gender
+          <select
+            name="gender"
+            value={user.gender}
+            onChange={(e) => setUser({ ...user, gender: e.target.value })}
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </label>
+
         <button onClick={postAccount}>Register</button>
         <p>{message}</p>
       </form>
