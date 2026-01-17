@@ -6,10 +6,6 @@ export default function SignUp() {
     username: "",
     password: "",
     email: "",
-    birthday: "",
-    minute: "",
-    second: "",
-    gender: "",
   });
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -60,10 +56,6 @@ export default function SignUp() {
           username: "",
           password: "",
           email: "",
-          birthday: "",
-          minute: "",
-          second: "",
-          gender: "",
         });
       })
       .catch((error) => {
@@ -73,8 +65,8 @@ export default function SignUp() {
   };
   return (
     <div className="signUpContainer">
-      <form action="" className="signUpFormContainer">
-        <h1>Register Page</h1>
+      <form className="signUpFormContainer">
+        <h1>Register an account</h1>
         <label htmlFor="username">
           Username:
           <input
@@ -86,6 +78,7 @@ export default function SignUp() {
             onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
         </label>
+
         <label htmlFor="password">
           Password:
           <input
@@ -97,6 +90,7 @@ export default function SignUp() {
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </label>
+
         <label htmlFor="email">
           E-mail:
           <input
@@ -107,46 +101,6 @@ export default function SignUp() {
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
-        </label>
-        <label htmlFor="birthday">
-          Birthday
-          <input
-            type="date"
-            name="birthday"
-            value={user.birthday}
-            onChange={(e) => setUser({ ...user, birthday: e.target.value })}
-          />
-        </label>
-
-        <label htmlFor="minute">
-          Birthday minute
-          <input
-            type="number"
-            name="minute"
-            value={user.minute}
-            onChange={(e) => setUser({ ...user, minute: e.target.value })}
-          />
-        </label>
-
-        <label htmlFor="second">
-          Birthday second
-          <input
-            type="number"
-            name="second"
-            value={user.second}
-            onChange={(e) => setUser({ ...user, second: e.target.value })}
-          />
-        </label>
-        <label htmlFor="gender">
-          Gender
-          <select
-            name="gender"
-            value={user.gender}
-            onChange={(e) => setUser({ ...user, gender: e.target.value })}
-          >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
         </label>
 
         <button onClick={postAccount}>Register</button>

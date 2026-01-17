@@ -1,10 +1,87 @@
-.horoscopeMenu {
-    background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 90px);
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0px 10px 0px;
-    
+.horoscopeMenu { 
+    background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 120px); width: 100vw; 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 12px 0; 
+    box-shadow: 0 0 25px rgba(0, 150, 255, 0.2); 
+    backdrop-filter: blur(4px); }
+
+.horoscopeMenu button { 
+    width: 10rem; 
+    height: 2.4rem; 
+    border: 1px solid rgba(173, 216, 230, 0.6); 
+    border-radius: 12px; color: azure; 
+    background: rgba(0, 69, 116, 0.7); 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    margin: 0 1.2rem; 
+    transition: all 0.25s ease; 
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.15); }
+
+.horoscopeMenu button:hover { 
+    background: rgb(0, 206, 221); 
+    color: black; 
+    border-color: black; 
+    box-shadow: 0 0 18px rgba(0, 206, 221, 0.8); }
+
+.horoscopeText { 
+    background: rgba(0, 44, 58, 0.85); 
+    width: 45%; 
+    margin: 8rem auto 0 auto; 
+    padding: 2.5%; 
+    font-size: 20px; color: azure; 
+    border-radius: 12px; 
+    box-shadow: 0 0 25px rgba(0, 150, 255, 0.25); 
+    backdrop-filter: blur(6px); 
+    animation: fadeIn 0.8s ease; }
+
+@keyframes fadeIn { from { 
+    opacity: 0; transform: translateY(20px); 
+} to { 
+    opacity: 1; transform: translateY(0); 
+} }
+
+.loader { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 30px; 
+    color: #e8d5ff; 
+    text-shadow: 0 0 12px #b47bff; 
+    animation: fadeIn 0.5s ease; }
+
+.spinner { 
+    width: 55px; 
+    height: 55px; 
+    border: 4px solid rgba(255, 255, 255, 0.15); 
+    border-top-color: #c28bff; border-radius: 50%; 
+    animation: spin 0.8s linear infinite, 
+    glow 1.4s ease-in-out infinite; margin-bottom: 12px; }
+
+@keyframes spin { to 
+    { 
+        transform: rotate(360deg); 
+} }
+
+@keyframes glow { 0% { 
+    box-shadow: 0 0 6px #c28bff; 
+} 50% { 
+    box-shadow: 0 0 20px #c28bff; 
+} 100% { 
+    box-shadow: 0 0 6px #c28bff; 
+} }
+
+.result h2 { 
+    text-shadow: 0 0 12px #b47bff; 
+    letter-spacing: 1px; 
+} 
+
+.result p { 
+    line-height: 1.6; 
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.2); 
 }
 
 .horoscopeMenu button {
@@ -28,3 +105,36 @@
     color: black;
     border: solid 1px black;
 }
+
+.horoscopeText {
+    background-color: red;
+    background-color: rgba(0, 44, 58, 0.856);
+    width: 40%;
+    justify-self: center;
+    margin: 8rem 0rem 0rem 0rem;
+    padding: 2%;
+    justify-items: center;
+    font-size: 20px;
+    color: azure;
+
+}
+
+.loader { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 30px; 
+    color: #e8d5ff; 
+    text-shadow: 0 0 8px #a56bff; }
+
+.spinner { 
+    width: 50px; 
+    height: 50px; 
+    border: 4px solid rgba(255, 255, 255, 0.2); 
+    border-top-color: #b47bff; 
+    border-radius: 50%; 
+    animation: spin 0.8s linear infinite; 
+    margin-bottom: 10px; 
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

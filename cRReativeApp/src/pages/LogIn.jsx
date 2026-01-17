@@ -12,6 +12,8 @@ export default function LogIn() {
     password: "",
   });
 
+  const [message, setMessage] = useState("");
+
   function handleChange(e) {
     setUser({
       ...user,
@@ -37,10 +39,9 @@ export default function LogIn() {
       .then((data) => {
         if (data.token) {
           logIn(data.token, data.user);
-          alert("Logged in!");
           navigate("/Profile");
         } else {
-          alert(data.message);
+          setMessage("Wrong E-mail or password!");
         }
       })
       .catch((err) => console.error(err));
@@ -48,8 +49,8 @@ export default function LogIn() {
 
   return (
     <div className="logInContainer">
-      <h1>Log in page</h1>
       <form className="logInFormContainer" onSubmit={log}>
+        <h1>Log in</h1>
         <label>
           E-mail
           <input
@@ -71,6 +72,7 @@ export default function LogIn() {
         </label>
 
         <button type="submit">Log in</button>
+        <p>{message}</p>
       </form>
     </div>
   );

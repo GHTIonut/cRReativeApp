@@ -2,76 +2,62 @@
   background-color: rgb(0, 19, 48);
   padding: 2px;
   display: flex;
-  /* justify-content: space-between; */
   gap: 10px;
 }
 
-.pageLogo {
-  height: 60px;
+.pageLogo { 
+  height: 60px; 
+  filter: drop-shadow(0 0 6px rgba(0, 150, 255, 0.4)); 
 }
 
-
-
-.navBarDivButtons {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  gap: 20px;
-  padding-right: 10px;
+.navBarDivButtons { 
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-end; 
+  width: 100%; 
+  gap: 20px; 
+  padding-right: 10px; 
 }
 
-
-
-.navBar button {
-  height: 2.6rem;
-  width: 8rem;
-  /* min-width: 1rem ; */
-  background-color: rgb(0, 42, 77);
-  border: none;
-  border-radius: 5px;
-  color: azure;
-  cursor: pointer;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 20px;
+.navBar button { 
+  height: 2.6rem; 
+  width: 8rem; 
+  background: rgba(0, 42, 77, 0.8); 
+  border: 1px solid rgba(173, 216, 230, 0.4); 
+  border-radius: 8px; 
+  color: azure; 
+  cursor: pointer; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px; 
+  transition: all 0.25s ease; 
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.15); 
 }
 
-.navBar button:hover {
-  background-color: rgb(229, 255, 0);
-  color: black;
+.navBar button:hover { 
+  background: rgb(229, 255, 0); 
+  color: black;  
+  box-shadow: 0 0 18px rgba(229, 255, 0, 0.8); 
+  border-color: black; 
 }
 
-.navBar .logInButton {
-  border: solid, 2px, azure;
-  border-radius: 5px;
+.navBar .logInButton, .navBar .signUpButton { 
+  border: 2px solid azure; 
 }
 
-.navBar .profileButton {
-  border: solid azure 1px;  
+.navBar .profileButton { 
+  border: 1px solid azure; 
 }
 
-.navBar .profileButton:hover {
-  border: solid black 1px
+.navBar .profileButton:hover { 
+  border-color: black; 
 }
 
-.navBar .signUpButton{
-  border: solid, 2px, azure;
-  border-radius: 5px;
+.navBar .logInButton:hover, .navBar .signUpButton:hover { 
+  border: 2px solid black; 
 }
 
-.navBar .signUpButton:hover {
-  border: black, 2px, solid ;
-  border-radius: 5px;
+.navBar .logOutButton:hover { 
+  background-color: red; 
+  color: azure; 
+  border: 2px solid azure; 
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.8); 
 }
-
-.navBar .logInButton:hover {
-  border: black, 2px, solid ;
-  border-radius: 5px;
-}
-
-.navBar .logOutButton:hover {
-  border: azure, 2px, solid ;
-  background-color: red;
-  color: azure;
-}
-
