@@ -10,6 +10,7 @@ import Footer from "./Components/Footer.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Horoscope from "./pages/Horoscope.jsx";
 import ProtectedRouteProfile from "./protected routes/protectedRoute.jsx";
+import ResetPasswordWindow from "./profilePages/resetPassword.jsx";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         />
         <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/Horoscope" element={<Horoscope />} />
+        <Route path="/ResetPassword" element={<ResetPasswordWindow />}></Route>
       </Routes>
       <Footer />
     </>

@@ -47,9 +47,33 @@
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.2); 
 }
 
-.logInFormContainer button { 
+.resetPasswordButtonContainer {
+    width: 100%;
+}
+
+.resetPasswordButtonContainer .resetPasswordButton {
+    background: rgb(0, 177, 153);
+    margin-top: 1rem;
+    cursor: pointer; 
+    box-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+    border: 1px solid black;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    padding: 3px 10px 3px 10px;
+}
+
+.resetPasswordButtonContainer .resetPasswordButton:hover { 
+    background: rgb(0, 255, 221); 
+    transform: translateY(-3px) scale(1.04); 
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
+}
+
+
+.logInFormContainer .logInButton { 
     width: 70%; 
-    margin-top: 3.5rem;
+    margin-top: 3rem;
     height: 45px; 
     background: rgb(0, 177, 153); 
     border: 1px solid black; 
@@ -60,7 +84,7 @@
     box-shadow: 0 0 10px rgba(0, 255, 200, 0.3); 
 }
 
-.logInFormContainer button:hover { 
+.logInFormContainer .logInButton:hover { 
     background: rgb(0, 255, 221); 
     transform: translateY(-3px) scale(1.04); 
     box-shadow: 0 0 18px rgba(0, 255, 200, 0.8); 

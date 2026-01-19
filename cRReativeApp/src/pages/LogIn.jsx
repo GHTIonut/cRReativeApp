@@ -70,8 +70,18 @@ export default function LogIn() {
             onChange={handleChange}
           />
         </label>
-
-        <button type="submit">Log in</button>
+        <div className="resetPasswordButtonContainer">
+          <button
+            type="button"
+            className="resetPasswordButton"
+            onClick={() => navigate("/ResetPassword")}
+          >
+            Forgot password?
+          </button>
+        </div>
+        <button className="logInButton" type="submit">
+          Log in
+        </button>
         <p>{message}</p>
       </form>
     </div>
