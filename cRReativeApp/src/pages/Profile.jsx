@@ -1,23 +1,24 @@
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import ProfileMenu from "../Components/ProfileMenu.jsx";
 import "../styles/profile.css";
-
 export function Profile() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  return (
-    <div className="profilePage">
-      <h1>Welcome to your profile</h1>
+  if (!user) {
+    navigate("/Login");
+    return null;
+  }
 
-      {user ? (
-        <div>
-          <p>Your username: {user.username}</p>
-          <p>Your email: {user.email}</p>
-        </div>
-      ) : (
-        navigate("/logIn")
-      )}
-    </div>
+  return (
+    <>
+      <div className="profileMenu">
+        <ProfileMenu />
+      </div>
+      <div className="profilePage">
+        <h1>Welcome to your profile</h1>
+      </div>
+    </>
   );
 }

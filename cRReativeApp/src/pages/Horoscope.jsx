@@ -27,9 +27,7 @@ export default function Horoscope() {
   }
   return (
     <>
-      {" "}
       <div className="horoscopeMenu">
-        {" "}
         <button onClick={() => getHoroscope("aries")}>Aries</button>
         <button onClick={() => getHoroscope("taurus")}>Taurus</button>
         <button onClick={() => getHoroscope("gemini")}>Gemini</button>
@@ -42,7 +40,7 @@ export default function Horoscope() {
         <button onClick={() => getHoroscope("capricorn")}>Capricorn</button>
         <button onClick={() => getHoroscope("aquarius")}>Aquarius</button>
         <button onClick={() => getHoroscope("pisces")}>Pisces</button>
-      </div>{" "}
+      </div>
       <div className="horoscopeText">
         {loading && (
           <div className="loader">
