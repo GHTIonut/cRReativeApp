@@ -17,7 +17,7 @@ export function Profile() {
         <ProfileMenu />
       </div>
       <div className="profilePage">
-        <h1>Welcome to your profile</h1>
+        <h1>Your cosmic space awaits, {user.username}</h1>
       </div>
     </>
   );

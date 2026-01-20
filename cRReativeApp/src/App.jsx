@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp.jsx";
 import LogIn from "./pages/LogIn.jsx";
 import News from "./pages/News.jsx";
 import { Profile } from "./pages/Profile.jsx";
+import PersonalInfoWindow from "./profilePages/PersonalInfo.jsx";
 import Footer from "./Components/Footer.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Horoscope from "./pages/Horoscope.jsx";
@@ -44,6 +45,14 @@ export default function App() {
             </ProtectedRouteProfile>
           }
         />
+        <Route
+          path="/PersonalInfo"
+          element={
+            <ProtectedRouteProfile>
+              <PersonalInfoWindow />
+            </ProtectedRouteProfile>
+          }
+        ></Route>
         <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/Horoscope" element={<Horoscope />} />
         <Route path="/ResetPassword" element={<ResetPasswordWindow />}></Route>
