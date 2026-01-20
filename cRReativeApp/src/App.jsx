@@ -53,6 +53,16 @@ export default function App() {
             </ProtectedRouteProfile>
           }
         ></Route>
+
+        <Route
+          path="/ChangePassword"
+          element={
+            <ProtectedRouteProfile>
+              <ResetPasswordWindow />
+            </ProtectedRouteProfile>
+          }
+        ></Route>
+
         <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/Horoscope" element={<Horoscope />} />
         <Route path="/ResetPassword" element={<ResetPasswordWindow />}></Route>
