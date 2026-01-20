@@ -11,6 +11,7 @@ import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Horoscope from "./pages/Horoscope.jsx";
 import ProtectedRouteProfile from "./protected routes/protectedRoute.jsx";
 import ResetPasswordWindow from "./profilePages/resetPassword.jsx";
+import ProtectedRouteGuest from "./protected routes/protectedGuest.jsx";
 
 export default function App() {
   return (
@@ -19,8 +20,22 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/News" element={<News />} />
-        <Route path="/Login" element={<LogIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route
+          path="/Login"
+          element={
+            <ProtectedRouteGuest>
+              <LogIn />
+            </ProtectedRouteGuest>
+          }
+        />
+        <Route
+          path="/SignUp"
+          element={
+            <ProtectedRouteGuest>
+              <SignUp />
+            </ProtectedRouteGuest>
+          }
+        />
         <Route
           path="/Profile"
           element={
