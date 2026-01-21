@@ -8,6 +8,8 @@ export default function PersonalInfoWindow() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]);
+  const [birthMinute, setBirthMinute] = useState("");
+  const [birthSecond, setBirthSecond] = useState("");
 
   useEffect(() => {
     if (country) {
@@ -26,8 +28,9 @@ export default function PersonalInfoWindow() {
         <ProfileMenu />
       </div>
       <div className="personalInfoContainer">
-        <form action="" className="updatePersonalInfo">
-          <label htmlFor="zodiacSign"></label>
+        <h1>Update your personal info</h1>
+        <form className="updatePersonalInfo">
+          <label htmlFor="zodiacSign">Zodiac sign:</label>
           <select
             name="zodiacSign"
             id="zodiacSign"
@@ -62,6 +65,7 @@ export default function PersonalInfoWindow() {
               </option>
             ))}
           </select>
+
           <label htmlFor="cityOfBirth">City of birth:</label>
           <select
             name="cityOfBirth"
@@ -77,6 +81,32 @@ export default function PersonalInfoWindow() {
               </option>
             ))}
           </select>
+
+          <label htmlFor="birthMinute">Birth minute:</label>
+          <input
+            type="number"
+            id="birthMinute"
+            name="birthMinute"
+            min="0"
+            max="59"
+            value={birthMinute}
+            onChange={(e) => setBirthMinute(e.target.value)}
+            placeholder="0 - 59"
+          />
+
+          <label htmlFor="birthSecond">Birth second:</label>
+          <input
+            type="number"
+            id="birthSecond"
+            name="birthSecond"
+            min="0"
+            max="59"
+            value={birthSecond}
+            onChange={(e) => setBirthSecond(e.target.value)}
+            placeholder="0 - 59"
+          />
+
+          <button type="submit">Save</button>
         </form>
       </div>
     </>
