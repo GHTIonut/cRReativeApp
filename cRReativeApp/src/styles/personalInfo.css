@@ -37,7 +37,8 @@
 }
 
 .updatePersonalInfo select,
-.updatePersonalInfo input[type="number"] {
+.updatePersonalInfo input[type="number"],
+.updatePersonalInfo input[type="date"] {
   width: 100%;
   box-sizing: border-box;
   padding: 0.55rem 0.8rem;

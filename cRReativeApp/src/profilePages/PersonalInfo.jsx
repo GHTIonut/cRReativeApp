@@ -8,8 +8,10 @@ export default function PersonalInfoWindow() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]);
+  const [birthday, setBirthday] = useState("");
   const [birthMinute, setBirthMinute] = useState("");
   const [birthSecond, setBirthSecond] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (country) {
@@ -29,7 +31,38 @@ export default function PersonalInfoWindow() {
       </div>
       <div className="personalInfoContainer">
         <h1>Update your personal info</h1>
-        <form className="updatePersonalInfo">
+        <form
+          className="updatePersonalInfo"
+          onSubmit={async (e) => {
+            e.preventDefault();
+
+            const token = localStorage.getItem("token");
+            const res = await fetch(
+              "http://localhost:3000/updatePersonalInfo",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                  sign,
+                  country,
+                  city,
+                  birthday,
+                  birthMinute,
+                  birthSecond,
+                }),
+              },
+            );
+            const data = await res.json();
+            if (res.ok) {
+              setMessage("Personal info updated succesfully");
+            } else {
+              setMessage(data.message || "Something went wrong.");
+            }
+          }}
+        >
           <label htmlFor="zodiacSign">Zodiac sign:</label>
           <select
             name="zodiacSign"
@@ -76,11 +109,20 @@ export default function PersonalInfoWindow() {
           >
             <option value="">Select city</option>
             {cities.map((ct) => (
-              <option key={ct.name} value={ct.name}>
+              <option key={`${ct.name}-${ct.stateCode}-${ct.latitude}`}>
                 {ct.name}
               </option>
             ))}
           </select>
+
+          <label htmlFor="birthday">Birthday</label>
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+          />
 
           <label htmlFor="birthMinute">Birth minute:</label>
           <input
@@ -105,7 +147,7 @@ export default function PersonalInfoWindow() {
             onChange={(e) => setBirthSecond(e.target.value)}
             placeholder="0 - 59"
           />
-
+          {message && <div className="successMessage">{message}</div>}
           <button type="submit">Save</button>
         </form>
       </div>
