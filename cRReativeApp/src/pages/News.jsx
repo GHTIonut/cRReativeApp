@@ -1,28 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import "../styles/news.css";
 
 export default function News() {
-  const [message, setMessage] = useState("");
+  const [news, setNews] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3000/")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setMessage(data.message);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setMessage("Error fetching data");
-      });
+    async function loadNews() {
+      const res = await fetch("http://localhost:3000/news");
+      const json = await res.json();
+      setNews(json);
+    }
+    loadNews();
   }, []);
+
   return (
-    <div>
-      <h2>News</h2>
-      <p id="demoMessage">{message}</p>
+    <div className="newsContainer">
+      <h1>Latest news about zodiac signs</h1>
+      {Object.entries(news).map(([sign, text]) => (
+        <div key={sign}>
+          <h2>{sign.toUpperCase()}</h2>
+          <p>{text}</p>
+        </div>
+      ))}
     </div>
   );
 }

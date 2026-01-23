@@ -1,20 +1,20 @@
 .profileMenu {
-  background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 150px);
+  background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 120px);
   width: 100vw;
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 10px 0px 10px 0px;
   backdrop-filter: blur(4px);
 }
 
 .profileMenu button {
+  margin: 10px 0px 10px 0px;
   width: 12rem;
   height: 2.6rem;
   border: 1px solid rgba(173, 216, 230, 0.6);
   border-radius: 12px;
   color: azure;
-  background: rgba(0, 69, 116, 0.7);
+  background: rgba(0, 69, 116, 0.8);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 18px;
   display: flex;

@@ -10,7 +10,9 @@ export default function ProfileMenu() {
       <button onClick={() => navigate("/ChangePassword")}>
         Change Password{" "}
       </button>
-      <button onClick={() => navigate("/Subscription")}>Subscription</button>
+      <button onClick={() => navigate("/HoroscopeSubscription")}>
+        Subscription
+      </button>
     </div>
   );
 }

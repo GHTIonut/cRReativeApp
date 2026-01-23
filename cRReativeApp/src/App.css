@@ -1,16 +1,17 @@
+html,
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
+}
+body {
+  padding-bottom: 45px;
   box-sizing: border-box;
-  background-image:linear-gradient(
-    rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), 
-    url("/public/Background.jpg"
-    );
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),
+    url("/public/Background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  background-attachment: fixed;
 }
-
-
-

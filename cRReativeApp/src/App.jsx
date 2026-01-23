@@ -11,8 +11,10 @@ import Footer from "./Components/Footer.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Horoscope from "./pages/Horoscope.jsx";
 import ProtectedRouteProfile from "./protected routes/protectedRoute.jsx";
-import ResetPasswordWindow from "./profilePages/resetPassword.jsx";
+import ResetPasswordWindow from "./pages/ResetPassword.jsx";
 import ProtectedRouteGuest from "./protected routes/protectedGuest.jsx";
+import LoggedChangePassword from "./profilePages/LoggedChangePassword.jsx";
+import HoroscopeSubscription from "./profilePages/Subscription.jsx";
 
 export default function App() {
   return (
@@ -58,14 +60,22 @@ export default function App() {
           path="/ChangePassword"
           element={
             <ProtectedRouteProfile>
-              <ResetPasswordWindow />
+              <LoggedChangePassword />
             </ProtectedRouteProfile>
           }
         ></Route>
-
+        <Route path="/ResetPassword" element={<ResetPasswordWindow />}></Route>
+        <Route
+          path="/HoroscopeSubscription"
+          element={
+            <ProtectedRouteProfile>
+              <HoroscopeSubscription />
+            </ProtectedRouteProfile>
+          }
+        ></Route>
+        <Route path="/News" element={<News />}></Route>
         <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/Horoscope" element={<Horoscope />} />
-        <Route path="/ResetPassword" element={<ResetPasswordWindow />}></Route>
       </Routes>
       <Footer />
     </>

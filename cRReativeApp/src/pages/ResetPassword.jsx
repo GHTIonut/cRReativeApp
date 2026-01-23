@@ -1,12 +1,8 @@
 import "../styles/resetPassword.css";
-import ProfileMenu from "../Components/ProfileMenu";
 
 export default function ResetPasswordWindow() {
   return (
     <>
-      <div className="profileMenu">
-        <ProfileMenu />
-      </div>
       <div className="resetPasswordContainer">
         <form className="resetPasswordForm">
           <h1>Reset Password</h1>
