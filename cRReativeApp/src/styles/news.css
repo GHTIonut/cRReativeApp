@@ -1,6 +1,6 @@
 .newsContainer {
   width: 70%;
-  margin: 1rem auto 1rem auto;
+  margin: 5.5rem auto 1rem auto;
   padding: 40px;
   background: radial-gradient(circle at top, #00334f, #0d0d0d 85%);
   border-radius: 14px;
@@ -14,14 +14,14 @@
   gap: 1.5rem;
 }
 
-.newsContainer > div {
+.newsContainer > .signsNewsContainer {
   background: rgba(0, 121, 105, 0.75);
   border: 1px solid rgba(0, 255, 200, 0.4);
   border-radius: 12px;
   padding: 20px 25px;
   box-shadow: 0 0 12px rgba(0, 255, 200, 0.25);
 }
-.newsContainer > div:hover {
+.newsContainer > .signsNewsContainer:hover {
   box-shadow: 0 0 20px rgba(0, 255, 200, 0.6);
 }
 
