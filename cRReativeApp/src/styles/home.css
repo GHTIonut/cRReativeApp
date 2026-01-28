@@ -1,13 +1,13 @@
-.homePageContent { 
-  width: 60%; 
-  margin: 6rem auto 0 auto; 
-  padding: 2.5rem; 
-  background: rgba(0, 35, 60, 0.75); 
-  border-radius: 14px; 
-  box-shadow: 0 0 30px rgba(0, 150, 255, 0.25); 
-  backdrop-filter: blur(6px); 
-  animation: fadeIn 0.8s ease; 
-  color: azure; 
-  font-size: 20px; 
-  line-height: 1.6; 
+.homePageContent {
+  width: 60%;
+  margin: 10rem auto 0 auto;
+  padding: 2.5rem;
+  background: rgba(0, 35, 60, 0.75);
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.25);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease;
+  color: azure;
+  font-size: 20px;
+  line-height: 1.6;
 }
