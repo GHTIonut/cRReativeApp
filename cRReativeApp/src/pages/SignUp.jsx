@@ -71,6 +71,7 @@ export default function SignUp() {
           Username:
           <input
             required
+            autoComplete="username"
             className="registerInput"
             name="username"
             type="text"
@@ -83,6 +84,7 @@ export default function SignUp() {
           Password:
           <input
             required
+            autoComplete="new-password"
             className="registerInput"
             name="password"
             type="password"
