@@ -21,19 +21,19 @@ export default function SignUp() {
     }
 
     if (user.username.length < 5) {
-      setMessage("Username length must be atleast 5 characters");
+      setMessage("Username length must be atleast 5 characters.");
       return;
     }
 
     if (user.password.length < 5 || !passwordRegex.test(user.password)) {
       setMessage(
-        "Password must be atleast 5 characters and must contain at least one uppercase letter, one number, and one special character."
+        "Password must be atleast 5 characters and must contain at least one uppercase letter, one number, and one special character.",
       );
       return;
     }
 
     if (!emailRegex.test(user.email)) {
-      return alert("Invalid email");
+      return setMessage("Invalid E-mail.");
     }
 
     fetch("http://localhost:3000/accounts", {
