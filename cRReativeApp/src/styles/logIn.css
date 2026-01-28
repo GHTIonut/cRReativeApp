@@ -1,99 +1,100 @@
-.logInContainer { 
-    background: radial-gradient(circle at top, #004574, #0d0d0d 85%); 
-    width: 27%; 
-    margin: 6rem auto 0 auto; 
-    padding: 70px; 
-    border-radius: 14px; 
-    box-shadow: 0 0 25px rgba(0, 150, 255, 0.25); 
-    backdrop-filter: blur(6px); 
-    color: azure; 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    animation: fadeIn 0.8s ease; 
+.logInContainer {
+  background: radial-gradient(circle at top, #004574, #0d0d0d 85%);
+  width: 27%;
+  margin: 10rem auto 0 auto;
+  padding: 70px;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: azure;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  animation: fadeIn 0.8s ease;
 }
 
-.logInFormContainer { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    width: 100%; 
-    gap: 1.2rem; 
-
+.logInFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1.2rem;
 }
 
-.logInFormContainer input { 
-    width: 100%; 
-    height: 42px; 
-    background: rgba(0, 121, 105, 0.75); 
-    border: 1px solid rgba(0, 255, 200, 0.4); 
-    border-radius: 8px; 
-    padding: 0 12px; 
-    color: azure; 
-    font-size: 0.95rem; 
-    transition: all 0.25s ease; 
-    box-shadow: 0 0 8px rgba(0, 255, 200, 0.15); 
+.logInFormContainer input {
+  width: 100%;
+  height: 42px;
+  background: rgba(0, 121, 105, 0.75);
+  border: 1px solid rgba(0, 255, 200, 0.4);
+  border-radius: 8px;
+  padding: 0 12px;
+  color: azure;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 8px rgba(0, 255, 200, 0.15);
 }
 
-.logInFormContainer input:focus { 
-    outline: none; 
-    border-color: #00ffd5; 
-    box-shadow: 0 0 18px rgba(0, 255, 200, 0.6); 
-    transform: scale(1.02); 
+.logInFormContainer input:focus {
+  outline: none;
+  border-color: #00ffd5;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.6);
+  transform: scale(1.02);
 }
 
-.logInFormContainer label { 
-    width: 100%; 
-    font-size: 1rem; 
-    margin-bottom: -6px; 
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.2); 
+.logInFormContainer label {
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: -6px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
 }
 
 .resetPasswordButtonContainer {
-    width: 100%;
+  width: 100%;
 }
 
 .resetPasswordButtonContainer .resetPasswordButton {
-    background: rgb(0, 177, 153);
-    margin-top: 1rem;
-    cursor: pointer; 
-    box-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
-    border: 1px solid black;
-    border-radius: 8px;
-    transition: all 0.25s ease;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1rem;
-    padding: 3px 10px 3px 10px;
+  background: rgb(0, 177, 153);
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+  border: 1px solid black;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1rem;
+  padding: 3px 10px 3px 10px;
 }
 
-.resetPasswordButtonContainer .resetPasswordButton:hover { 
-    background: rgb(0, 255, 221); 
-    transform: translateY(-3px) scale(1.04); 
-    box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
+.resetPasswordButtonContainer .resetPasswordButton:hover {
+  background: rgb(0, 255, 221);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
 }
 
-.logInFormContainer .logInButton { 
-    width: 70%; 
-    margin-top: 3rem;
-    height: 45px; 
-    background: rgb(0, 177, 153); 
-    border: 1px solid black; 
-    border-radius: 8px; 
-    font-size: 1.1rem; 
-    cursor: pointer; 
-    transition: all 0.25s ease; 
-    box-shadow: 0 0 10px rgba(0, 255, 200, 0.3); 
+.logInFormContainer .logInButton {
+  width: 70%;
+  margin-top: 3rem;
+  height: 45px;
+  background: rgb(0, 177, 153);
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
 }
 
-.logInFormContainer .logInButton:hover { 
-    background: rgb(0, 255, 221); 
-    transform: translateY(-3px) scale(1.04); 
-    box-shadow: 0 0 18px rgba(0, 255, 200, 0.8); 
+.logInFormContainer .logInButton:hover {
+  background: rgb(0, 255, 221);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
 }
 
-@keyframes fadeIn { 
-    from { 
-        opacity: 0; 
-        transform: translateY(20px); 
-    } to { 
-        opacity: 1; 
-        transform: translateY(0); 
-}}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
