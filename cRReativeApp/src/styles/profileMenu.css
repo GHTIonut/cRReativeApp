@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 2rem;
   backdrop-filter: blur(4px);
+  margin-top: 2.1rem;
 }
 
 .profileMenu button {
