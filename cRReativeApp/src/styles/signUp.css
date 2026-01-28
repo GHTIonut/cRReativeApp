@@ -1,93 +1,96 @@
-.signUpContainer { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    background: radial-gradient(circle at top, #004574, #0d0d0d 85%); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding: 70px; 
-    color: azure; 
-    width: 27%; 
-    margin: 6rem auto 0 auto; 
-    border-radius: 16px; 
-    box-shadow: 0 0 30px rgba(0, 150, 255, 0.25); 
-    backdrop-filter: blur(6px); 
-    animation: fadeIn 0.8s ease; 
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #004574, #0d0d0d 85%);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 70px;
+  color: azure;
+  width: 27%;
+  margin: 10rem auto 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.25);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease;
 }
 
-.signUpFormContainer { 
-    background: rgba(255, 255, 255, 0.06); 
-    border-radius: 18px; 
-    padding: 15px 20px; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 1rem; 
-    width: 100%; 
-    align-items: center; 
-    box-shadow: 0 0 20px rgba(0, 150, 255, 0.15); 
-    backdrop-filter: blur(4px); 
-    animation: fadeSlide 0.8s ease; 
+.signUpFormContainer {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.15);
+  backdrop-filter: blur(4px);
+  animation: fadeSlide 0.8s ease;
 }
 
-.signUpFormContainer input{ 
-    width: 90%; 
-    height: 30px; 
-    background: rgba(0, 121, 105, 0.75); 
-    border: 1px solid rgba(0, 255, 200, 0.4); 
-    border-radius: 10px; 
-    padding: 0px 0px 0px 10px; 
-    color: azure; 
-    font-size: 1rem; 
-    transition: all 0.25s ease; 
-    box-shadow: 0 0 10px rgba(0, 255, 200, 0.15); 
+.signUpFormContainer input {
+  width: 90%;
+  height: 30px;
+  background: rgba(0, 121, 105, 0.75);
+  border: 1px solid rgba(0, 255, 200, 0.4);
+  border-radius: 10px;
+  padding: 0px 0px 0px 10px;
+  color: azure;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.15);
 }
 
-
-.signUpFormContainer input:focus { 
-    outline: none; 
-    border-color: #00ffd5; 
-    box-shadow: 0 0 18px rgba(0, 255, 200, 0.6); 
-    transform: scale(1.02); 
+.signUpFormContainer input:focus {
+  outline: none;
+  border-color: #00ffd5;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.6);
+  transform: scale(1.02);
 }
 
-.signUpFormContainer label { 
-    width: 90%; 
-    font-size: 1rem; 
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.2); 
+.signUpFormContainer label {
+  width: 90%;
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
 }
 
-.signUpFormContainer button { 
-    width: 60%; 
-    margin-top: 2.7rem;
-    height: 50px; 
-    background: rgb(0, 230, 199); 
-    border: 1px solid black; 
-    border-radius: 10px; 
-    font-size: 1.2rem; 
-    cursor: pointer; 
-    transition: all 0.25s ease; 
-    box-shadow: 0 0 12px rgba(0, 255, 200, 0.3); 
+.signUpFormContainer button {
+  width: 60%;
+  margin-top: 2.7rem;
+  height: 50px;
+  background: rgb(0, 230, 199);
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.3);
 }
 
-.signUpFormContainer button:hover { 
-    background: rgb(0, 255, 221); 
-    transform: translateY(-3px) scale(1.05); 
-    box-shadow: 0 0 20px rgba(0, 255, 200, 0.8); 
+.signUpFormContainer button:hover {
+  background: rgb(0, 255, 221);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.8);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-@keyframes fadeIn { 
-    from { 
-    opacity: 0; 
-    transform: translateY(20px); 
-} to { 
-    opacity: 1; 
-    transform: translateY(0); 
-}}
-
-@keyframes fadeSlide { 
-    from { 
-        opacity: 0; 
-        transform: translateY(15px); 
-    } 
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-}}
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
