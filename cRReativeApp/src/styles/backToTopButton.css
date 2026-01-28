@@ -1,9 +1,6 @@
-.backToTopButtonContainer {
-}
-
 .backToTopButton {
   width: 100px;
-  float: inline-end;
+  float: right;
   background: rgb(0, 177, 153);
   margin-top: 1rem;
   cursor: pointer;
