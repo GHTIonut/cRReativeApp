@@ -54,6 +54,7 @@ export default function LogIn() {
         <label>
           E-mail
           <input
+            autoComplete="email"
             type="email"
             name="email"
             value={user.email}
@@ -64,6 +65,7 @@ export default function LogIn() {
         <label>
           Password
           <input
+            autoComplete="current-password"
             type="password"
             name="password"
             value={user.password}

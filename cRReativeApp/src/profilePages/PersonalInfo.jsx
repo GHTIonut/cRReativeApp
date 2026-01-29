@@ -9,6 +9,7 @@ export default function PersonalInfoWindow() {
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]);
   const [birthday, setBirthday] = useState("");
+  const [birthHour, setBirthHour] = useState("");
   const [birthMinute, setBirthMinute] = useState("");
   const [birthSecond, setBirthSecond] = useState("");
   const [message, setMessage] = useState("");
@@ -50,6 +51,7 @@ export default function PersonalInfoWindow() {
                   country,
                   city,
                   birthday,
+                  birthHour,
                   birthMinute,
                   birthSecond,
                 }),
@@ -61,6 +63,15 @@ export default function PersonalInfoWindow() {
             } else {
               setMessage(data.message || "Something went wrong.");
             }
+            setSign("");
+            setCountry("");
+            setCity("");
+            setCities([]);
+            setBirthday("");
+            setBirthHour("");
+            setBirthMinute("");
+            setBirthSecond("");
+            setTimeout(() => setMessage(""), 5000);
           }}
         >
           <label htmlFor="zodiacSign">Zodiac sign:</label>
@@ -123,6 +134,17 @@ export default function PersonalInfoWindow() {
             value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
           />
+          <label htmlFor="birthHour">Birth hour:</label>
+          <input
+            type="number"
+            id="birthHour"
+            name="birthMinute"
+            min="0"
+            max="23"
+            value={birthHour}
+            onChange={(e) => setBirthHour(e.target.value)}
+            placeholder="0 - 23"
+          />
 
           <label htmlFor="birthMinute">Birth minute:</label>
           <input
@@ -147,6 +169,7 @@ export default function PersonalInfoWindow() {
             onChange={(e) => setBirthSecond(e.target.value)}
             placeholder="0 - 59"
           />
+
           {message && <div className="successMessage">{message}</div>}
           <button type="submit">Save</button>
         </form>
