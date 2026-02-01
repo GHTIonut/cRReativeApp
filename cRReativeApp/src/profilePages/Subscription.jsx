@@ -38,6 +38,29 @@ export default function HoroscopeSubscription() {
     if (value.length > 7) {
       value = value.slice(0, 7);
     }
+
+    if (value.length >= 2) {
+      const rawMonth = value.slice(0, 2);
+      if (rawMonth.length === 2) {
+        const month = parseInt(rawMonth);
+        const currentMonth = new Date().getMonth() + 1;
+        if (month < currentMonth) {
+          return;
+        }
+      }
+    }
+
+    if (value.length === 7) {
+      const rawYear = value.slice(5, 7);
+      if (rawYear.length === 2) {
+        const year = parseInt(rawYear);
+        const currentYear = new Date().getFullYear() % 100;
+        if (year < currentYear) {
+          return;
+        }
+      }
+    }
+
     setExpiry(value);
   }
 
