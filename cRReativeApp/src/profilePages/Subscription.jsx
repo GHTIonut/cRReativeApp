@@ -5,6 +5,17 @@ import { useState } from "react";
 export default function HoroscopeSubscription() {
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
+  const [cardHolder, setCardHolder] = useState("");
+
+  function handleCardHolder(e) {
+    let value = e.target.value;
+    value = value.replace(/[^a-zA-Z\s]/g, "");
+
+    if (value.length > 50) {
+      value = value.slice(0, 50);
+    }
+    setCardHolder(value);
+  }
   function handleCardNumber(e) {
     let value = e.target.value;
     value = value.replace(/\D/g, "");
@@ -23,8 +34,8 @@ export default function HoroscopeSubscription() {
     if (value.length > 2) {
       value = value.slice(0, 2) + " / " + value.slice(2, 4);
     }
-    if (value.length > 5) {
-      value = value.slice(0, 5);
+    if (value.length > 7) {
+      value = value.slice(0, 7);
     }
     setExpiry(value);
   }
@@ -39,7 +50,14 @@ export default function HoroscopeSubscription() {
             <h1>Subscription form</h1>
             <div>
               <label htmlFor="cardHolder">Card holder:</label>
-              <input type="text" name="cardHolder" id="cardHolder" />
+              <input
+                type="text"
+                name="cardHolder"
+                id="cardHolder"
+                onChange={handleCardHolder}
+                value={cardHolder}
+                minLength={50}
+              />
               <label htmlFor="cardNumber">Card number:</label>
               <input
                 type="text"
@@ -48,6 +66,7 @@ export default function HoroscopeSubscription() {
                 pattern="^[0-9]{16}$"
                 value={cardNumber}
                 onChange={handleCardNumber}
+                minLength={19}
               />
               <label htmlFor="expiryDate">Expiry date:</label>
               <input
@@ -57,6 +76,7 @@ export default function HoroscopeSubscription() {
                 onChange={handleExpiryInput}
                 value={expiry}
                 placeholder="MM/YY"
+                minLength={7}
               />
               <label htmlFor="cvv">CVV:</label>
               <input type="text" name="cvv" id="cvv" />
