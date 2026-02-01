@@ -6,6 +6,7 @@ export default function HoroscopeSubscription() {
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cardHolder, setCardHolder] = useState("");
+  const [cvv, setCvv] = useState("");
 
   function handleCardHolder(e) {
     let value = e.target.value;
@@ -39,6 +40,16 @@ export default function HoroscopeSubscription() {
     }
     setExpiry(value);
   }
+
+  function handleCvv(e) {
+    let value = e.target.value;
+    value = value.replace(/\D/g, "");
+
+    if (value.length > 3) {
+      value = value.slice(0, 3);
+    }
+    setCvv(value);
+  }
   return (
     <>
       <div className="profileMenu">
@@ -57,6 +68,7 @@ export default function HoroscopeSubscription() {
                 onChange={handleCardHolder}
                 value={cardHolder}
                 minLength={50}
+                placeholder="Johnny Joe"
               />
               <label htmlFor="cardNumber">Card number:</label>
               <input
@@ -67,6 +79,7 @@ export default function HoroscopeSubscription() {
                 value={cardNumber}
                 onChange={handleCardNumber}
                 minLength={19}
+                placeholder="1234 5678 1234 5678"
               />
               <label htmlFor="expiryDate">Expiry date:</label>
               <input
@@ -79,7 +92,15 @@ export default function HoroscopeSubscription() {
                 minLength={7}
               />
               <label htmlFor="cvv">CVV:</label>
-              <input type="text" name="cvv" id="cvv" />
+              <input
+                type="text"
+                name="cvv"
+                id="cvv"
+                value={cvv}
+                onChange={handleCvv}
+                minLength={3}
+                placeholder="123"
+              />
             </div>
             <button>Pay</button>
           </form>
