@@ -7,6 +7,8 @@ export default function HoroscopeSubscription() {
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardHolder, setCardHolder] = useState("");
   const [cvv, setCvv] = useState("");
+  const [paymentButton, setPaymentButton] = useState(false);
+  const [oneWeekPlanMessage, setOneWeekPlanMessage] = useState("");
 
   function handleCardHolder(e) {
     let value = e.target.value;
@@ -74,8 +76,6 @@ export default function HoroscopeSubscription() {
     setCvv(value);
   }
 
-  const [paymentButton, setPaymentButton] = useState(false);
-
   useEffect(() => {
     if (
       cardHolder.length > 0 &&
@@ -90,6 +90,19 @@ export default function HoroscopeSubscription() {
     }
   }, [cardHolder, cardNumber, cardExpiry, cvv]);
 
+  function planMessageText() {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const nextWeek = new Date();
+    nextWeek.setDate(tomorrow.getDate() + 7);
+    const tomorrowString = tomorrow.toLocaleDateString();
+    const nextWeekString = nextWeek.toLocaleDateString();
+
+    setOneWeekPlanMessage(
+      `You will receive detailed daily horoscope from tomorrow, ${tomorrowString}, until ${nextWeekString} `,
+    );
+  }
+
   return (
     <>
       <div className="profileMenu">
@@ -99,7 +112,7 @@ export default function HoroscopeSubscription() {
         <section>
           <form className="subscriptionForm">
             <h1>Subscription form</h1>
-            <div>
+            <div className="inputDivs">
               <label htmlFor="cardHolder">Card holder:</label>
               <input
                 type="text"
@@ -142,6 +155,22 @@ export default function HoroscopeSubscription() {
                 minLength={3}
                 placeholder="123"
               />
+            </div>
+            <div className="subscriptionPlans">
+              <div>
+                <label htmlFor="oneWeekPlan">One week plan</label>
+                <input
+                  type="radio"
+                  name="subscriptionPlan"
+                  id="oneWeekPlan"
+                  onClick={planMessageText}
+                />
+                <label htmlFor="twoWeeksPlan">Two weeks plan</label>
+                <input type="radio" name="subscriptionPlan" id="twoWeeksPlan" />
+                <label htmlFor="oneMonthPlan">One month plan</label>
+                <input type="radio" name="subscriptionPlan" id="oneMonthPlan" />
+                <div>{oneWeekPlanMessage}</div>
+              </div>
             </div>
             <button disabled={!paymentButton}>Pay</button>
           </form>
