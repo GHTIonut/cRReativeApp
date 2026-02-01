@@ -1,10 +1,10 @@
 import ProfileMenu from "../Components/ProfileMenu";
 import "../styles/subscription.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HoroscopeSubscription() {
   const [cardNumber, setCardNumber] = useState("");
-  const [expiry, setExpiry] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
   const [cardHolder, setCardHolder] = useState("");
   const [cvv, setCvv] = useState("");
 
@@ -44,7 +44,7 @@ export default function HoroscopeSubscription() {
       if (rawMonth.length === 2) {
         const month = parseInt(rawMonth);
         const currentMonth = new Date().getMonth() + 1;
-        if (month < currentMonth) {
+        if (month < currentMonth || month > 12) {
           return;
         }
       }
@@ -61,7 +61,7 @@ export default function HoroscopeSubscription() {
       }
     }
 
-    setExpiry(value);
+    setCardExpiry(value);
   }
 
   function handleCvv(e) {
@@ -73,6 +73,23 @@ export default function HoroscopeSubscription() {
     }
     setCvv(value);
   }
+
+  const [paymentButton, setPaymentButton] = useState(false);
+
+  useEffect(() => {
+    if (
+      cardHolder.length > 0 &&
+      cardNumber.length === 19 &&
+      cardExpiry.length === 7 &&
+      cvv.length === 3
+    ) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPaymentButton(true);
+    } else {
+      setPaymentButton(false);
+    }
+  }, [cardHolder, cardNumber, cardExpiry, cvv]);
+
   return (
     <>
       <div className="profileMenu">
@@ -90,7 +107,7 @@ export default function HoroscopeSubscription() {
                 id="cardHolder"
                 onChange={handleCardHolder}
                 value={cardHolder}
-                minLength={50}
+                maxLength={50}
                 placeholder="Johnny Joe"
               />
               <label htmlFor="cardNumber">Card number:</label>
@@ -98,10 +115,11 @@ export default function HoroscopeSubscription() {
                 type="text"
                 name="cardNumber"
                 id="cardNumber"
-                pattern="^[0-9]{16}$"
+                pattern="^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$"
                 value={cardNumber}
                 onChange={handleCardNumber}
                 minLength={19}
+                maxLength={19}
                 placeholder="1234 5678 1234 5678"
               />
               <label htmlFor="expiryDate">Expiry date:</label>
@@ -110,7 +128,7 @@ export default function HoroscopeSubscription() {
                 name="expiryDate"
                 id="expiryDate"
                 onChange={handleExpiryInput}
-                value={expiry}
+                value={cardExpiry}
                 placeholder="MM/YY"
                 minLength={7}
               />
@@ -125,7 +143,7 @@ export default function HoroscopeSubscription() {
                 placeholder="123"
               />
             </div>
-            <button>Pay</button>
+            <button disabled={!paymentButton}>Pay</button>
           </form>
         </section>
       </main>
