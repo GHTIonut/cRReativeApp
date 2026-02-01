@@ -88,6 +88,10 @@
   box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
 }
 
+form.special {
+  background-color: red;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
