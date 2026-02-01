@@ -90,16 +90,28 @@ export default function HoroscopeSubscription() {
     }
   }, [cardHolder, cardNumber, cardExpiry, cvv]);
 
-  function planMessageText() {
+  function oneWeekPlanText() {
+    const today = new Date();
     const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setDate(today.getDate() + 1);
     const nextWeek = new Date();
     nextWeek.setDate(tomorrow.getDate() + 7);
     const tomorrowString = tomorrow.toLocaleDateString();
     const nextWeekString = nextWeek.toLocaleDateString();
+    const cost = 5;
+    const currency = "EUR";
 
     setOneWeekPlanMessage(
-      `You will receive detailed daily horoscope from tomorrow, ${tomorrowString}, until ${nextWeekString} `,
+      <>
+        <div>
+          You will receive detailed daily horoscope from tomorrow,{" "}
+          {tomorrowString}, until {nextWeekString}.
+        </div>
+        <div>
+          The total cost for this service is {currency}
+          {""} {cost}.
+        </div>
+      </>,
     );
   }
 
@@ -163,7 +175,7 @@ export default function HoroscopeSubscription() {
                   type="radio"
                   name="subscriptionPlan"
                   id="oneWeekPlan"
-                  onClick={planMessageText}
+                  onChange={oneWeekPlanText}
                 />
                 <label htmlFor="twoWeeksPlan">Two weeks plan</label>
                 <input type="radio" name="subscriptionPlan" id="twoWeeksPlan" />
