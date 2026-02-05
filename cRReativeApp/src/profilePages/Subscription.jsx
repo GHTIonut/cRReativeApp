@@ -9,6 +9,7 @@ export default function HoroscopeSubscription() {
   const [cvv, setCvv] = useState("");
   const [paymentButton, setPaymentButton] = useState(false);
   const [oneWeekPlanMessage, setOneWeekPlanMessage] = useState("");
+  const [twoWeeksPlanMessage, setTwoWeeksPlanMessage] = useState("");
 
   function handleCardHolder(e) {
     let value = e.target.value;
@@ -115,6 +116,31 @@ export default function HoroscopeSubscription() {
     );
   }
 
+  function twoWeeksPlanText() {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    const twoWeeksLater = new Date();
+    twoWeeksLater.setDate(tomorrow.getDate() + 14);
+    const tomorrowString = tomorrow.toLocaleDateString();
+    const twoWeeksLaterString = twoWeeksLater.toLocaleDateString();
+    const cost = 7.5;
+    const currency = "EUR";
+
+    setTwoWeeksPlanMessage(
+      <>
+        <div>
+          You will receive detailed daily horoscope from tomorrow,{" "}
+          {tomorrowString}, until {twoWeeksLaterString}.
+        </div>
+        <div>
+          The total cost for this service is {currency}
+          {""} {cost}.
+        </div>
+      </>,
+    );
+  }
+
   return (
     <>
       <div className="profileMenu">
@@ -178,10 +204,16 @@ export default function HoroscopeSubscription() {
                   onChange={oneWeekPlanText}
                 />
                 <label htmlFor="twoWeeksPlan">Two weeks plan</label>
-                <input type="radio" name="subscriptionPlan" id="twoWeeksPlan" />
+                <input
+                  type="radio"
+                  name="subscriptionPlan"
+                  id="twoWeeksPlan"
+                  onChange={twoWeeksPlanText}
+                />
                 <label htmlFor="oneMonthPlan">One month plan</label>
                 <input type="radio" name="subscriptionPlan" id="oneMonthPlan" />
                 <div>{oneWeekPlanMessage}</div>
+                <div>{twoWeeksPlanMessage}</div>
               </div>
             </div>
             <button disabled={!paymentButton}>Pay</button>
