@@ -10,6 +10,8 @@ export default function HoroscopeSubscription() {
   const [paymentButton, setPaymentButton] = useState(false);
   const [oneWeekPlanMessage, setOneWeekPlanMessage] = useState("");
   const [twoWeeksPlanMessage, setTwoWeeksPlanMessage] = useState("");
+  const [oneMonthPlanMessage, setOneMonthPlanMessage] = useState("");
+  const [selectedPlan, setSelectedPlan] = useState("");
 
   function handleCardHolder(e) {
     let value = e.target.value;
@@ -141,6 +143,31 @@ export default function HoroscopeSubscription() {
     );
   }
 
+  function oneMonthPlanText() {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    const oneMonthLater = new Date();
+    oneMonthLater.setDate(tomorrow.getDate() + 30);
+    const tomorrowString = tomorrow.toLocaleDateString();
+    const oneMonthLaterString = oneMonthLater.toLocaleDateString();
+    const cost = 12.5;
+    const currency = "EUR";
+
+    setOneMonthPlanMessage(
+      <>
+        <div>
+          You will receive detailed daily horoscope from tomorrow,{" "}
+          {tomorrowString}, until {oneMonthLaterString}.
+        </div>
+        <div>
+          The total cost for this service is {currency}
+          {""} {cost}.
+        </div>
+      </>,
+    );
+  }
+
   return (
     <>
       <div className="profileMenu">
@@ -201,19 +228,37 @@ export default function HoroscopeSubscription() {
                   type="radio"
                   name="subscriptionPlan"
                   id="oneWeekPlan"
-                  onChange={oneWeekPlanText}
+                  value={"oneWeek"}
+                  onChange={(e) => {
+                    setSelectedPlan(e.target.value);
+                    oneWeekPlanText();
+                  }}
                 />
                 <label htmlFor="twoWeeksPlan">Two weeks plan</label>
                 <input
                   type="radio"
                   name="subscriptionPlan"
                   id="twoWeeksPlan"
-                  onChange={twoWeeksPlanText}
+                  value={"twoWeeks"}
+                  onChange={(e) => {
+                    setSelectedPlan(e.target.value);
+                    twoWeeksPlanText();
+                  }}
                 />
                 <label htmlFor="oneMonthPlan">One month plan</label>
-                <input type="radio" name="subscriptionPlan" id="oneMonthPlan" />
-                <div>{oneWeekPlanMessage}</div>
-                <div>{twoWeeksPlanMessage}</div>
+                <input
+                  type="radio"
+                  name="subscriptionPlan"
+                  id="oneMonthPlan"
+                  value={"oneMonth"}
+                  onChange={(e) => {
+                    setSelectedPlan(e.target.value);
+                    oneMonthPlanText();
+                  }}
+                />
+                {selectedPlan === "oneWeek" && oneWeekPlanMessage}
+                {selectedPlan === "twoWeeks" && twoWeeksPlanMessage}
+                {selectedPlan === "oneMonth" && oneMonthPlanMessage}
               </div>
             </div>
             <button disabled={!paymentButton}>Pay</button>
