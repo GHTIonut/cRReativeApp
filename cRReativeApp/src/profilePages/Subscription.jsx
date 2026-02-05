@@ -106,13 +106,15 @@ export default function HoroscopeSubscription() {
 
     setOneWeekPlanMessage(
       <>
-        <div>
-          You will receive detailed daily horoscope from tomorrow,{" "}
-          {tomorrowString}, until {nextWeekString}.
-        </div>
-        <div>
-          The total cost for this service is {currency}
-          {""} {cost}.
+        <div className="oneWeekPlanMessage">
+          <div>
+            You will receive detailed daily horoscope from tomorrow,{" "}
+            {tomorrowString}, until {nextWeekString}.
+          </div>
+          <div>
+            The total cost for this service is {currency}
+            {""} {cost}.
+          </div>
         </div>
       </>,
     );
@@ -131,13 +133,15 @@ export default function HoroscopeSubscription() {
 
     setTwoWeeksPlanMessage(
       <>
-        <div>
-          You will receive detailed daily horoscope from tomorrow,{" "}
-          {tomorrowString}, until {twoWeeksLaterString}.
-        </div>
-        <div>
-          The total cost for this service is {currency}
-          {""} {cost}.
+        <div className="twoWeeksPlanMessage">
+          <div>
+            You will receive detailed daily horoscope from tomorrow,{" "}
+            {tomorrowString}, until {twoWeeksLaterString}.
+          </div>
+          <div>
+            The total cost for this service is {currency}
+            {""} {cost}.
+          </div>
         </div>
       </>,
     );
@@ -156,13 +160,15 @@ export default function HoroscopeSubscription() {
 
     setOneMonthPlanMessage(
       <>
-        <div>
-          You will receive detailed daily horoscope from tomorrow,{" "}
-          {tomorrowString}, until {oneMonthLaterString}.
-        </div>
-        <div>
-          The total cost for this service is {currency}
-          {""} {cost}.
+        <div className="oneMonthPlanMessage">
+          <div>
+            You will receive detailed daily horoscope from tomorrow,{" "}
+            {tomorrowString}, until {oneMonthLaterString}.
+          </div>
+          <div>
+            The total cost for this service is {currency}
+            {""} {cost}.
+          </div>
         </div>
       </>,
     );
@@ -170,9 +176,8 @@ export default function HoroscopeSubscription() {
 
   return (
     <>
-      <div className="profileMenu">
-        <ProfileMenu />
-      </div>
+      <ProfileMenu />
+
       <main>
         <section>
           <form className="subscriptionForm">
@@ -222,40 +227,43 @@ export default function HoroscopeSubscription() {
               />
             </div>
             <div className="subscriptionPlans">
-              <div>
-                <label htmlFor="oneWeekPlan">One week plan</label>
-                <input
-                  type="radio"
-                  name="subscriptionPlan"
-                  id="oneWeekPlan"
-                  value={"oneWeek"}
-                  onChange={(e) => {
-                    setSelectedPlan(e.target.value);
-                    oneWeekPlanText();
-                  }}
-                />
-                <label htmlFor="twoWeeksPlan">Two weeks plan</label>
-                <input
-                  type="radio"
-                  name="subscriptionPlan"
-                  id="twoWeeksPlan"
-                  value={"twoWeeks"}
-                  onChange={(e) => {
-                    setSelectedPlan(e.target.value);
-                    twoWeeksPlanText();
-                  }}
-                />
-                <label htmlFor="oneMonthPlan">One month plan</label>
-                <input
-                  type="radio"
-                  name="subscriptionPlan"
-                  id="oneMonthPlan"
-                  value={"oneMonth"}
-                  onChange={(e) => {
-                    setSelectedPlan(e.target.value);
-                    oneMonthPlanText();
-                  }}
-                />
+              <div className="planOption">
+                <div>
+                  <label htmlFor="oneWeekPlan">One week plan</label>
+                  <input
+                    type="radio"
+                    name="subscriptionPlan"
+                    id="oneWeekPlan"
+                    value={"oneWeek"}
+                    onChange={(e) => {
+                      setSelectedPlan(e.target.value);
+                      oneWeekPlanText();
+                    }}
+                  />
+                  <label htmlFor="twoWeeksPlan">Two weeks plan</label>
+                  <input
+                    type="radio"
+                    name="subscriptionPlan"
+                    id="twoWeeksPlan"
+                    value={"twoWeeks"}
+                    onChange={(e) => {
+                      setSelectedPlan(e.target.value);
+                      twoWeeksPlanText();
+                    }}
+                  />
+                  <label htmlFor="oneMonthPlan">One month plan</label>
+                  <input
+                    type="radio"
+                    name="subscriptionPlan"
+                    id="oneMonthPlan"
+                    value={"oneMonth"}
+                    onChange={(e) => {
+                      setSelectedPlan(e.target.value);
+                      oneMonthPlanText();
+                    }}
+                  />
+                </div>
+
                 {selectedPlan === "oneWeek" && oneWeekPlanMessage}
                 {selectedPlan === "twoWeeks" && twoWeeksPlanMessage}
                 {selectedPlan === "oneMonth" && oneMonthPlanMessage}

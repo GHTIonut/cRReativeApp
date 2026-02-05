@@ -2,10 +2,13 @@
   background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 120px);
   width: 100vw;
   display: flex;
+  position: static;
+  top: 64px;
+  left: 0px;
   justify-content: center;
   gap: 2rem;
   backdrop-filter: blur(4px);
-  margin-top: 2.1rem;
+  margin-top: 65px;
 }
 
 .profileMenu button {
