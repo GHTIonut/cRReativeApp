@@ -13,6 +13,7 @@ export default function ProfileMenu() {
       <button onClick={() => navigate("/HoroscopeSubscription")}>
         Subscription
       </button>
+      <button onClick={() => navigate("/ToDoList")}>To do list</button>
     </div>
   );
 }

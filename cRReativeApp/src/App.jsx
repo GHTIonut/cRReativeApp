@@ -15,6 +15,7 @@ import ResetPasswordWindow from "./pages/ResetPassword.jsx";
 import ProtectedRouteGuest from "./protected routes/protectedGuest.jsx";
 import LoggedChangePassword from "./profilePages/LoggedChangePassword.jsx";
 import HoroscopeSubscription from "./profilePages/Subscription.jsx";
+import { ToDoList } from "./profilePages/ToDoList.jsx";
 
 export default function App() {
   return (
@@ -70,6 +71,14 @@ export default function App() {
           element={
             <ProtectedRouteProfile>
               <HoroscopeSubscription />
+            </ProtectedRouteProfile>
+          }
+        ></Route>
+        <Route
+          path="/ToDoList"
+          element={
+            <ProtectedRouteProfile>
+              <ToDoList />
             </ProtectedRouteProfile>
           }
         ></Route>
