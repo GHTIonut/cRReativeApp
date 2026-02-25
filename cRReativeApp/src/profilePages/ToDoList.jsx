@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProfileMenu from "../Components/ProfileMenu";
 import "../styles/toDoContainer.css";
 
@@ -7,10 +7,20 @@ export function ToDoList() {
   const [description, setDescription] = useState("");
   const [toDoList, setToDoList] = useState([]);
 
+  useEffect(() => {
+    const storedToDoList = localStorage.getItem("toDoList");
+    if (storedToDoList) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setToDoList(JSON.parse(storedToDoList));
+    }
+  }, []);
+
   function handleSubmit(event) {
     event.preventDefault();
     const newToDo = { title: title, description: description };
-    setToDoList([...toDoList, newToDo]);
+    const updatedToDoList = [...toDoList, newToDo];
+    setToDoList(updatedToDoList);
+    localStorage.setItem("toDoList", JSON.stringify(updatedToDoList));
     setTitle("");
     setDescription("");
   }
@@ -18,10 +28,12 @@ export function ToDoList() {
   function deleteToDo(indexToDelete) {
     const updatedList = toDoList.filter((_, index) => index !== indexToDelete);
     setToDoList(updatedList);
+    localStorage.setItem("toDoList", JSON.stringify(updatedList));
   }
 
   return (
     <>
+      <ProfileMenu />
       <section className="toDoFormContainer">
         <form className="toDoForm">
           <label htmlFor="title">Title</label>
