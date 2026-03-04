@@ -26,7 +26,7 @@ export function Profile() {
       setPersonalInfo(data);
     }
     getPersonalData();
-  });
+  }, []);
 
   return (
     <>
