@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import ProfileMenu from "../Components/ProfileMenu";
 import "../styles/toDoContainer.css";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 export function ToDoList() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [toDoList, setToDoList] = useState([]);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     const storedToDoList = localStorage.getItem("toDoList");
@@ -15,14 +18,30 @@ export function ToDoList() {
     }
   }, []);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const newToDo = { title: title, description: description };
     const updatedToDoList = [...toDoList, newToDo];
     setToDoList(updatedToDoList);
     localStorage.setItem("toDoList", JSON.stringify(updatedToDoList));
+    try {
+      const response = await fetch("http://localhost:3000/toDoList", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ title: title, description: description }),
+      });
+      if (!response.ok) {
+        throw new Error("Error. Data not sent.");
+      }
+    } catch (error) {
+      error;
+    }
     setTitle("");
     setDescription("");
+    console.log("To do saved.");
   }
 
   function deleteToDo(indexToDelete) {
