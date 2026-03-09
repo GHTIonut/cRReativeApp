@@ -9,6 +9,7 @@ export function ToDoList() {
   const [description, setDescription] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const { token } = useContext(AuthContext);
+  // const [checkBox, setCheckBox] = useState(false);
 
   useEffect(() => {
     const storedToDoList = localStorage.getItem("toDoList");
@@ -20,10 +21,7 @@ export function ToDoList() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const newToDo = { title: title, description: description };
-    const updatedToDoList = [...toDoList, newToDo];
-    setToDoList(updatedToDoList);
-    localStorage.setItem("toDoList", JSON.stringify(updatedToDoList));
+
     try {
       const response = await fetch("http://localhost:3000/toDoList", {
         method: "POST",
@@ -31,21 +29,55 @@ export function ToDoList() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ title: title, description: description }),
+        body: JSON.stringify({ title, description }),
       });
       if (!response.ok) {
         throw new Error("Error. Data not sent.");
       }
+      const data = await response.json();
+      const newToDoFromBackend = { ...data.toDo, done: false };
+
+      const updatedToDoList = [...toDoList, newToDoFromBackend];
+      setToDoList(updatedToDoList);
+
+      localStorage.setItem("toDoList", JSON.stringify(updatedToDoList));
+
+      setTitle("");
+      setDescription("");
+
+      console.log("To-do saved.");
     } catch (error) {
-      error;
+      console.error("POST error:", error);
     }
-    setTitle("");
-    setDescription("");
-    console.log("To do saved.");
   }
 
-  function deleteToDo(indexToDelete) {
+  async function deleteToDo(indexToDelete) {
+    const toDoToDelete = toDoList[indexToDelete];
+
     const updatedList = toDoList.filter((_, index) => index !== indexToDelete);
+    setToDoList(updatedList);
+    localStorage.setItem("toDoList", JSON.stringify(updatedList));
+
+    try {
+      const response = await fetch("http://localhost:3000/deleteToDo", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ id: toDoToDelete.id }),
+      });
+
+      const data = await response.json();
+      console.log("Deleted:", data);
+    } catch (error) {
+      console.error("Delete error:", error);
+    }
+  }
+
+  function toggleDone(index) {
+    const updatedList = [...toDoList];
+    updatedList[index].done = !updatedList[index].done;
     setToDoList(updatedList);
     localStorage.setItem("toDoList", JSON.stringify(updatedList));
   }
@@ -79,6 +111,14 @@ export function ToDoList() {
                 <button type="button" onClick={() => deleteToDo(index)}>
                   Delete
                 </button>
+                <label htmlFor="checkBox">Done</label>
+                <input
+                  type="checkbox"
+                  name=""
+                  id="checkbox"
+                  checked={toDo.done}
+                  onChange={() => toggleDone(index)}
+                />
               </div>
             ))}
           </div>
