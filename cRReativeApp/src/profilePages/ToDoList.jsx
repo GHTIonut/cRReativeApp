@@ -75,11 +75,27 @@ export function ToDoList() {
     }
   }
 
-  function toggleDone(index) {
+  async function toggleDone(index) {
     const updatedList = [...toDoList];
     updatedList[index].done = !updatedList[index].done;
     setToDoList(updatedList);
     localStorage.setItem("toDoList", JSON.stringify(updatedList));
+
+    try {
+      await fetch("http://localhost:3000/updateToDo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          id: updatedList[index].id,
+          done: updatedList[index].done,
+        }),
+      });
+    } catch (error) {
+      console.error("Update error:", error);
+    }
   }
 
   return (
