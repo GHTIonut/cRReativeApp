@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ProfileMenu from "../Components/ProfileMenu";
-import "../styles/toDoContainer.css";
+import "../styles/toDoList.css";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 
@@ -101,7 +101,8 @@ export function ToDoList() {
   return (
     <>
       <ProfileMenu />
-      <section className="toDoFormContainer">
+      <section className="toDoContainer">
+        <h1>Your To do List</h1>
         <form className="toDoForm">
           <label htmlFor="title">Title</label>
           <input
@@ -122,7 +123,7 @@ export function ToDoList() {
           </button>
           <div>
             {toDoList.map((toDo, index) => (
-              <div key={index}>
+              <div className="toDoItem" key={index}>
                 <h2>{toDo.title}</h2> <p>{toDo.description}</p>{" "}
                 <button type="button" onClick={() => deleteToDo(index)}>
                   Delete

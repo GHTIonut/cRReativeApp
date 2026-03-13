@@ -1,0 +1,202 @@
+/* MAIN CONTAINER */
+.toDoContainer {
+  width: 38%;
+  margin: 2rem auto 0 auto;
+  padding: 1.4rem 1.6rem;
+  background: radial-gradient(circle at top, #004574, #0d0d0d 85%);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(0, 150, 255, 0.22);
+  backdrop-filter: blur(6px);
+  color: azure;
+  animation: fadeIn 0.8s ease;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/* TITLE */
+.toDoContainer h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  color: azure;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(0, 255, 221, 0.6);
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+/* FORM */
+.toDoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.toDoForm label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(180, 230, 255);
+  text-shadow: 0 0 6px rgba(0, 255, 221, 0.35);
+}
+
+.toDoForm input[type="text"] {
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(173, 216, 230, 0.5);
+  background: rgba(0, 69, 116, 0.65);
+  color: azure;
+  font-size: 0.9rem;
+  outline: none;
+  transition: 0.25s ease;
+  box-shadow: 0 0 8px rgba(0, 150, 255, 0.12);
+}
+
+.toDoForm input[type="text"]:hover {
+  background: rgba(0, 206, 221, 0.75);
+  color: black;
+  border-color: black;
+  transform: translateY(-1px);
+}
+
+/* SAVE BUTTON */
+.toDoForm button {
+  width: 60%;
+  height: 45px;
+  margin: 1rem auto 0 auto;
+  background: rgb(0, 177, 153);
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+  color: black;
+}
+
+.toDoForm button:hover {
+  background: rgb(0, 255, 221);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
+}
+
+/* TO‑DO ITEM CARD */
+.toDoItem {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(0, 69, 116, 0.45);
+  box-shadow: 0 0 10px rgba(0, 255, 221, 0.25);
+  transition: 0.25s ease;
+}
+
+.toDoItem:hover {
+  background: rgba(0, 206, 221, 0.2);
+  transform: translateY(-2px);
+}
+
+/* TITLE INSIDE CARD */
+.toDoItem h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: azure;
+  text-shadow: 0 0 6px rgba(0, 255, 221, 0.4);
+}
+
+/* DESCRIPTION */
+.toDoItem p {
+  margin: 0.3rem 0 0.6rem 0;
+  color: rgb(200, 240, 255);
+}
+
+/* DELETE BUTTON */
+.toDoItem button {
+  background: rgb(255, 60, 60);
+  width: 6rem;
+  height: 2.5rem;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  transition: 0.25s ease;
+  margin-right: 0.6rem;
+}
+
+.toDoItem button:hover {
+  background: rgb(255, 0, 0);
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgb(255, 0, 0);
+}
+
+/* CUSTOM CHECKBOX */
+.toDoItem label[for="checkBox"] {
+  color: rgb(180, 230, 255);
+  text-shadow: 0 0 6px rgba(0, 255, 221, 0.35);
+  float: right;
+}
+
+/* Hide native checkbox */
+.toDoItem input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(173, 216, 230, 0.8);
+  background: rgba(0, 69, 116, 0.9);
+  box-shadow: 0 0 6px rgba(0, 255, 221, 0.4);
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s ease;
+  float: right;
+}
+
+/* Hover */
+.toDoItem input[type="checkbox"]:hover {
+  background: rgba(0, 206, 221, 0.85);
+  border-color: black;
+}
+
+/* Checked */
+.toDoItem input[type="checkbox"]:checked {
+  background: rgb(0, 255, 221);
+  box-shadow: 0 0 10px rgba(0, 255, 221, 0.9);
+}
+
+/* Checkmark */
+.toDoItem input[type="checkbox"]::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+  font-size: 0.9rem;
+  color: black;
+  opacity: 0;
+  transition: 0.15s ease;
+}
+
+.toDoItem input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 12px rgba(0, 255, 221, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(0, 255, 221, 1);
+  }
+  100% {
+    text-shadow: 0 0 12px rgba(0, 255, 221, 0.6);
+  }
+}
