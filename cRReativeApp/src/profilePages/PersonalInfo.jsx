@@ -80,6 +80,7 @@ export default function PersonalInfoWindow() {
             value={sign}
             onChange={(e) => setSign(e.target.value)}
           >
+            <option value="">Select zodiac sign</option>
             <option value="Aries">Aries</option>
             <option value="Taurus">Taurus</option>
             <option value="Gemini">Gemini</option>
