@@ -1,0 +1,73 @@
+.privacyPolicyContainer {
+  width: 70%;
+  margin: 5.5rem auto 2rem auto;
+  padding: 40px 50px;
+  background: radial-gradient(circle at top, #00334f, #0d0d0d 85%);
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: azure;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  animation: fadeIn 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  line-height: 1.7;
+}
+
+.privacyPolicyContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #a8e6ff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.privacyPolicyContainer h2 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  color: #a8e6ff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+  transition: 0.3s ease;
+}
+
+.privacyPolicyContainer h2:hover {
+  color: #00ffe1;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.6);
+}
+
+.privacyPolicyContainer h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #8ddfff;
+  text-shadow: 0 0 4px rgba(0, 200, 255, 0.3);
+}
+
+.privacyPolicyContainer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: azure;
+}
+
+.privacyPolicyContainer ul {
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.privacyPolicyContainer li {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

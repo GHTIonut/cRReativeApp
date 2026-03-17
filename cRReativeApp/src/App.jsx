@@ -16,6 +16,7 @@ import ProtectedRouteGuest from "./protected routes/protectedGuest.jsx";
 import LoggedChangePassword from "./profilePages/LoggedChangePassword.jsx";
 import HoroscopeSubscription from "./profilePages/Subscription.jsx";
 import { ToDoList } from "./profilePages/ToDoList.jsx";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy.jsx";
 
 export default function App() {
   return (
@@ -83,8 +84,9 @@ export default function App() {
           }
         ></Route>
         <Route path="/News" element={<News />}></Route>
-        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/Horoscope" element={<Horoscope />} />
+        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+        <Route path="PrivacyPolicy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </>

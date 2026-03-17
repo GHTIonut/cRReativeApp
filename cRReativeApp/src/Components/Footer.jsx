@@ -9,7 +9,7 @@ export default function Footer() {
       <button onClick={() => navigate("/TermsAndConditions")}>
         Terms and conditions
       </button>
-      <button>Privacy policy</button>
+      <button onClick={() => navigate("/PrivacyPolicy")}>Privacy policy</button>
       <button>Cookies</button>
       <button>Contact</button>
     </div>
