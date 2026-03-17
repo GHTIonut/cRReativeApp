@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/signUp.css";
+// import { preview } from "vite";
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -8,33 +9,49 @@ export default function SignUp() {
     email: "",
   });
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
-  const [message, setMessage] = useState("");
+  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+  const [message, setMessage] = useState({
+    allFieldsRequired: "",
+    usernameError1: "",
+    usernameError2: "",
+    passwordError: "",
+    emailError: "",
+    succes: "",
+  });
 
   const postAccount = (event) => {
     event.preventDefault();
 
-    if (!user.username || !user.password || !user.email) {
-      setMessage("Please fill in all fields.");
-      return;
-    }
+    // if (!user.username || !user.password || !user.email) {
+    //   setMessage("Please fill in all fields.");
+    //   return;
+    // }
 
-    if (user.username.length < 5) {
-      setMessage("Username length must be atleast 5 characters.");
-      return;
-    }
+    // if (user.username.length < 5) {
+    //   setMessage("Username length must be atleast 5 characters.");
+    //   return;
+    // }
 
-    if (user.password.length < 5 || !passwordRegex.test(user.password)) {
-      setMessage(
-        "Password must be atleast 5 characters and must contain at least one uppercase letter, one number, and one special character.",
-      );
-      return;
-    }
+    // if (user.password.length < 5 || !passwordRegex.test(user.password)) {
+    //   setMessage(
+    //     "Password must be atleast 5 characters and must contain at least one uppercase letter, one number, and one special character.",
+    //   );
+    //   return;
+    // }
 
-    if (!emailRegex.test(user.email)) {
-      return setMessage("Invalid E-mail.");
-    }
+    // if (!emailRegex.test(user.email)) {
+    //   return setMessage();
+    // }
+
+    setMessage({
+      allFieldsRequired: "",
+      usernameError1: "",
+      usernameError2: "",
+      passwordError: "",
+      emailError: "",
+      succes: "",
+    });
 
     fetch("http://localhost:3000/accounts", {
       method: "POST",
@@ -43,24 +60,36 @@ export default function SignUp() {
       },
       body: JSON.stringify(user),
     })
-      .then((response) => {
+      .then(async (response) => {
+        const data = await response.json();
         if (!response.ok) {
-          throw new Error("Error");
+          setMessage({
+            allFieldsRequired: data.allFieldsRequired || "",
+            usernameError1: data.usernameError || "",
+            passwordError: data.passwordError || "",
+            emailError: data.emailError || "",
+            succes: "",
+          });
+          return;
         }
-        return response.json({});
-      })
-      .then((data) => {
-        console.log("Account created:", data);
-        setMessage("Account successfully created!");
+        setMessage({
+          allFieldsRequired: "",
+          usernameError: "",
+          passwordError: "",
+          emailError: "",
+          success: "Account successfully created!",
+        });
         setUser({
           username: "",
           password: "",
           email: "",
         });
       })
-      .catch((error) => {
-        console.error("Error creating account:", error);
-        setMessage("Error creating account.");
+      .catch(() => {
+        setMessage((prev) => ({
+          ...prev,
+          allFieldsRequired: "Server error. Please try again.",
+        }));
       });
   };
   return (
@@ -106,7 +135,19 @@ export default function SignUp() {
         </label>
 
         <button onClick={postAccount}>Register</button>
-        <p>{message}</p>
+        {message.allFieldsRequired && (
+          <div className="error">{message.allFieldsRequired}</div>
+        )}
+        {message.usernameError && (
+          <div className="erorr">{message.usernameError1}</div>
+        )}
+        {message.passwordError && (
+          <div className="error">{message.passwordError}</div>
+        )}
+        {message.emailError && (
+          <div className="error">{message.emailError}</div>
+        )}
+        {message.success && <div className="success">{message.success}</div>}
       </form>
     </div>
   );

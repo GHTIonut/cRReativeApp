@@ -9,6 +9,7 @@ export function ToDoList() {
   const [description, setDescription] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const { token } = useContext(AuthContext);
+  const [error, setError] = useState({ title: "", description: "" });
   // const [checkBox, setCheckBox] = useState(false);
 
   useEffect(() => {
@@ -31,20 +32,23 @@ export function ToDoList() {
         },
         body: JSON.stringify({ title, description }),
       });
-      if (!response.ok) {
-        throw new Error("Error. Data not sent.");
-      }
       const data = await response.json();
+      if (!response.ok) {
+        setError({
+          title: data.titleMessage,
+          description: data.descriptionMessage,
+        });
+        setTitle("");
+        setDescription("");
+        return;
+      }
       const newToDoFromBackend = { ...data.toDo, done: false };
-
       const updatedToDoList = [...toDoList, newToDoFromBackend];
       setToDoList(updatedToDoList);
-
       localStorage.setItem("toDoList", JSON.stringify(updatedToDoList));
-
       setTitle("");
       setDescription("");
-
+      setError({ title: "", description: "" });
       console.log("To-do saved.");
     } catch (error) {
       console.error("POST error:", error);
@@ -121,6 +125,10 @@ export function ToDoList() {
           <button type="button" onClick={handleSubmit}>
             Save
           </button>
+          {error.title && <div className="errorMessage">{error.title}</div>}
+          {error.description && (
+            <div className="errorMessage">{error.description}</div>
+          )}
           <div>
             {toDoList.map((toDo, index) => (
               <div className="toDoItem" key={index}>

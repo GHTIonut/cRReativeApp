@@ -1,0 +1,61 @@
+.termsAndConditionsContainer {
+  width: 75%;
+  margin: 5.5rem auto 2rem auto;
+  padding: 40px 50px;
+  background: radial-gradient(circle at top, #00334f, #0d0d0d 85%);
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: azure;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  animation: fadeIn 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  line-height: 1.7;
+}
+
+.termsAndConditionsContainer h1 {
+  text-align: center;
+}
+
+.termsAndConditionsContainer h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+  color: #a8e6ff;
+}
+
+.termsAndConditionsContainer p {
+  font-size: 1.05rem;
+  margin: 0;
+  color: azure;
+}
+
+.termsAndConditionsContainer ul {
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.termsAndConditionsContainer li {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.termsAndConditionsContainer h2:hover {
+  color: #00ffe1;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.6);
+  transition: 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
