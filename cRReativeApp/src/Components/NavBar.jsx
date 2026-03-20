@@ -51,7 +51,7 @@ export default function NavBar() {
         <div className="navBarDivButtons">
           <button onClick={() => navigate("/")}>Home</button>
           <button onClick={() => navigate("/Horoscope")}>Horoscope</button>
-          <button onClick={() => navigate("/News")}>News</button>
+          <button onClick={() => navigate("/News")}>Constellations</button>
           {renderAuthSection()}
         </div>
       </div>

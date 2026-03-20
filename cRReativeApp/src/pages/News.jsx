@@ -17,7 +17,7 @@ export default function News() {
   return (
     <>
       <div className="newsContainer">
-        <h1>Latest news about zodiac signs</h1>
+        <h1>About constellations.</h1>
         {Object.entries(news).map(([sign, text]) => (
           <div key={sign} className="signsNewsContainer">
             <h2>{sign.toUpperCase()}</h2>

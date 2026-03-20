@@ -1,0 +1,57 @@
+.contactContainer {
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f0f 85%);
+  width: 35%;
+  margin: 8rem auto 0 auto;
+  padding: 60px;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: azure;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  animation: fadeIn 0.8s ease;
+}
+
+.developerInfo {
+  display: flex;
+  gap: 3%;
+}
+
+.contactContainer img {
+  border-radius: 14px;
+  width: 35%;
+}
+
+.contactContainer h1 {
+  margin-top: 3.5rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+.contactContainer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactContainer li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  transition: transform 0.1s ease;
+}
+
+.contactContainer li:hover {
+  transform: scale(1.005);
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
+}
+
+.contactContainer a {
+  color: #00ffd5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactContainer a:hover {
+  color: #00b199;
+}

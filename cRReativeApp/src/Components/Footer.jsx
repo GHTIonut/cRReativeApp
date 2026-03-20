@@ -11,7 +11,7 @@ export default function Footer() {
       </button>
       <button onClick={() => navigate("/PrivacyPolicy")}>Privacy policy</button>
       <button onClick={() => navigate("/Cookies")}>Cookie policy</button>
-      <button>Contact</button>
+      <button onClick={() => navigate("/Contact")}>Contact</button>
     </div>
   );
 }
