@@ -11,10 +11,7 @@ export function Contact() {
           <li>Surname: Ionut-Cristian;</li>
           <li>Age: 29;</li>
           <li>Location: Bucharest.</li>
-          <li>
-            Technology: HTML, CSS, JavaScript, React, Node.js, Bootstrap
-            {"(soon);"}
-          </li>
+          <li>Technology: HTML, CSS, JavaScript, React, Node.js, Bootstrap</li>
           <li>Studies: Web complete at Scoala Informala de IT.</li>
         </ul>
       </div>
