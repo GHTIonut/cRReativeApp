@@ -6,7 +6,6 @@
   background: radial-gradient(circle at top, #004574, #0d0d0d 85%);
   border-radius: 14px;
   box-shadow: 0 0 18px rgba(0, 150, 255, 0.22);
-  backdrop-filter: blur(6px);
   color: azure;
   animation: fadeIn 0.8s ease;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -124,6 +123,16 @@
   background: rgb(255, 0, 0);
   transform: scale(1.05);
   box-shadow: 0 0 18px rgb(255, 0, 0);
+}
+
+/* EDIT BUTTON */
+#editButton {
+  background-color: rgba(0, 255, 200, 0.8);
+  color: black;
+}
+
+#editButton:hover {
+  box-shadow: rgba(0, 255, 200, 0.932);
 }
 
 /* CUSTOM CHECKBOX */

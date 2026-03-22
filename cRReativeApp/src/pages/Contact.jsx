@@ -10,7 +10,7 @@ export function Contact() {
           <li>Name: Ghita;</li>
           <li>Surname: Ionut-Cristian;</li>
           <li>Age: 29;</li>
-          <li>Location: Bucharest.</li>
+          <li>Location: Bucharest, Romania.</li>
           <li>Technology: HTML, CSS, JavaScript, React, Node.js, Bootstrap</li>
           <li>Studies: Web complete at Scoala Informala de IT.</li>
         </ul>
