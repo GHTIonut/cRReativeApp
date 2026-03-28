@@ -4,11 +4,10 @@ import "../styles/personalInfo.css";
 import { Country, City } from "country-state-city";
 
 export default function PersonalInfoWindow() {
-  const [sign, setSign] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]);
-  const [birthday, setBirthday] = useState("");
+  const [birthDate, setBirthDate] = useState("");
   const [birthHour, setBirthHour] = useState("");
   const [birthMinute, setBirthMinute] = useState("");
   const [birthSecond, setBirthSecond] = useState("");
@@ -46,10 +45,9 @@ export default function PersonalInfoWindow() {
                   Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify({
-                  sign,
                   country,
                   city,
-                  birthday,
+                  birthDate,
                   birthHour,
                   birthMinute,
                   birthSecond,
@@ -62,39 +60,16 @@ export default function PersonalInfoWindow() {
             } else {
               setMessage(data.message || "Something went wrong.");
             }
-            setSign("");
             setCountry("");
             setCity("");
             setCities([]);
-            setBirthday("");
+            setBirthDate("");
             setBirthHour("");
             setBirthMinute("");
             setBirthSecond("");
             setTimeout(() => setMessage(""), 5000);
           }}
         >
-          <label htmlFor="zodiacSign">Zodiac sign:</label>
-          <select
-            name="zodiacSign"
-            id="zodiacSign"
-            value={sign}
-            onChange={(e) => setSign(e.target.value)}
-          >
-            <option value="">Select zodiac sign</option>
-            <option value="Aries">Aries</option>
-            <option value="Taurus">Taurus</option>
-            <option value="Gemini">Gemini</option>
-            <option value="Cancer">Cancer</option>
-            <option value="Leo">Leo</option>
-            <option value="Virgo">Virgo</option>
-            <option value="Libra">Libra</option>
-            <option value="Scorpio">Scorpio</option>
-            <option value="Sagittarius">Sagittarius</option>
-            <option value="Capricorn">Capricorn</option>
-            <option value="Aquarius">Aquarius</option>
-            <option value="Pisces">Pisces</option>
-          </select>
-
           <label htmlFor="placeOfBirth">Place of birth:</label>
           <select
             name="placeOfBirth"
@@ -126,13 +101,13 @@ export default function PersonalInfoWindow() {
             ))}
           </select>
 
-          <label htmlFor="birthday">Birthday</label>
+          <label htmlFor="birthDate">Birth date</label>
           <input
             type="date"
-            id="birthday"
-            name="birthday"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
+            id="birthDate"
+            name="birthDate"
+            value={birthDate}
+            onChange={(e) => setBirthDate(e.target.value)}
           />
           <label htmlFor="birthHour">Birth hour:</label>
           <input

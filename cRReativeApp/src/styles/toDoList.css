@@ -108,8 +108,8 @@
 /* DELETE BUTTON */
 .toDoItem button {
   background: rgb(255, 60, 60);
-  width: 6rem;
-  height: 2.5rem;
+  width: 5rem;
+  height: 2rem;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
