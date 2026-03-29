@@ -5,7 +5,7 @@ import { Country, City } from "country-state-city";
 
 export default function PersonalInfoWindow() {
   const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(null);
   const [cities, setCities] = useState([]);
   const [birthDate, setBirthDate] = useState("");
   const [birthHour, setBirthHour] = useState("");
@@ -18,7 +18,7 @@ export default function PersonalInfoWindow() {
       const cityList = City.getCitiesOfCountry(country);
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setCities(cityList);
-      setCity("");
+      setCity(null);
     }
   }, [country]);
 
@@ -82,7 +82,7 @@ export default function PersonalInfoWindow() {
           >
             <option value="">Select country</option>
             {countries.map((c) => (
-              <option key={c.name} value={c.name}>
+              <option key={c.isoCode} value={c.isoCode}>
                 {c.name}
               </option>
             ))}
