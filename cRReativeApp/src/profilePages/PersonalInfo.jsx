@@ -36,6 +36,7 @@ export default function PersonalInfoWindow() {
             e.preventDefault();
 
             const token = localStorage.getItem("token");
+
             const res = await fetch(
               "http://localhost:3000/updatePersonalInfo",
               {
@@ -46,7 +47,9 @@ export default function PersonalInfoWindow() {
                 },
                 body: JSON.stringify({
                   country,
-                  city,
+                  city: city?.name || "",
+                  latitude: city?.latitude || "",
+                  longitude: city?.longitude || "",
                   birthDate,
                   birthHour,
                   birthMinute,
@@ -61,7 +64,7 @@ export default function PersonalInfoWindow() {
               setMessage(data.message || "Something went wrong.");
             }
             setCountry("");
-            setCity("");
+            setCity(null);
             setCities([]);
             setBirthDate("");
             setBirthHour("");
@@ -79,7 +82,7 @@ export default function PersonalInfoWindow() {
           >
             <option value="">Select country</option>
             {countries.map((c) => (
-              <option key={c.isoCode} value={c.isoCode}>
+              <option key={c.name} value={c.name}>
                 {c.name}
               </option>
             ))}
@@ -89,13 +92,19 @@ export default function PersonalInfoWindow() {
           <select
             name="cityOfBirth"
             id="cityOfBirth"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
+            value={city?.name || ""}
+            onChange={(e) => {
+              const selected = cities.find((c) => c.name === e.target.value);
+              setCity(selected);
+            }}
             disabled={!country}
           >
             <option value="">Select city</option>
             {cities.map((ct) => (
-              <option key={`${ct.name}-${ct.stateCode}-${ct.latitude}`}>
+              <option
+                key={`${ct.name}-${ct.stateCode}-${ct.latitude}`}
+                value={ct.name}
+              >
                 {ct.name}
               </option>
             ))}
