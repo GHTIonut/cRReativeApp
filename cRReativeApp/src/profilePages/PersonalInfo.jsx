@@ -2,15 +2,21 @@ import ProfileMenu from "../Components/ProfileMenu";
 import { useState, useEffect } from "react";
 import "../styles/personalInfo.css";
 import { Country, City } from "country-state-city";
+import { Days } from "../useful/days";
+import { Month } from "../useful/month";
+import { Year } from "../useful/year";
 
 export default function PersonalInfoWindow() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState(null);
   const [cities, setCities] = useState([]);
-  const [birthDate, setBirthDate] = useState("");
-  const [birthHour, setBirthHour] = useState("");
-  const [birthMinute, setBirthMinute] = useState("");
-  const [birthSecond, setBirthSecond] = useState("");
+
+  const [year, setYear] = useState("");
+  const [month, setMonth] = useState("");
+  const [day, setDay] = useState("");
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
+
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -34,7 +40,6 @@ export default function PersonalInfoWindow() {
           className="updatePersonalInfo"
           onSubmit={async (e) => {
             e.preventDefault();
-
             const token = localStorage.getItem("token");
 
             const res = await fetch(
@@ -47,29 +52,38 @@ export default function PersonalInfoWindow() {
                 },
                 body: JSON.stringify({
                   country,
-                  city: city?.name || "",
-                  latitude: city?.latitude || "",
-                  longitude: city?.longitude || "",
-                  birthDate,
-                  birthHour,
-                  birthMinute,
-                  birthSecond,
+                  city: city?.name,
+                  latitude: Number(city?.latitude),
+                  longitude: Number(city?.longitude),
+                  year: year ? Number(year) : null,
+                  month: month ? Number(month) : null,
+                  day: day ? Number(day) : null,
+                  hour: hour !== "" ? Number(hour) : null,
+                  minute: minute !== "" ? Number(minute) : null,
                 }),
               },
             );
+
             const data = await res.json();
+
             if (res.ok) {
-              setMessage("Personal info updated succesfully");
+              setMessage(
+                `Personal info updated successfully! Your zodiac sign is ${data.user.zodiacSign} and your ascendant is ${data.user.ascendantSign}.`,
+              );
             } else {
               setMessage(data.message || "Something went wrong.");
             }
+
+            // Reset form
             setCountry("");
             setCity(null);
             setCities([]);
-            setBirthDate("");
-            setBirthHour("");
-            setBirthMinute("");
-            setBirthSecond("");
+            setDay("");
+            setMonth("");
+            setYear("");
+            setHour("");
+            setMinute("");
+
             setTimeout(() => setMessage(""), 5000);
           }}
         >
@@ -99,7 +113,7 @@ export default function PersonalInfoWindow() {
             }}
             disabled={!country}
           >
-            <option value="">Select city</option>
+            <option>Select city</option>
             {cities.map((ct) => (
               <option
                 key={`${ct.name}-${ct.stateCode}-${ct.latitude}`}
@@ -110,47 +124,62 @@ export default function PersonalInfoWindow() {
             ))}
           </select>
 
-          <label htmlFor="birthDate">Birth date</label>
-          <input
-            type="date"
-            id="birthDate"
-            name="birthDate"
-            value={birthDate}
-            onChange={(e) => setBirthDate(e.target.value)}
-          />
-          <label htmlFor="birthHour">Birth hour:</label>
+          <h2>Birth details</h2>
+
+          <label htmlFor="yearOfBirth">Year:</label>
+          <select
+            name="yearOfBirth "
+            id="yearOfBirth"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+          >
+            <option>Select year</option>
+            <Year />
+          </select>
+
+          <label htmlFor="monthOfBirth">Month:</label>
+          <select
+            name="monthOfBirth"
+            id="monthOfBirth"
+            value={month}
+            onChange={(e) => setMonth(e.target.value)}
+          >
+            <option>Select month</option>
+            <Month />
+          </select>
+
+          <label htmlFor="dayOfBirth">Day:</label>
+          <select
+            name="dayOfBirth"
+            id="dayOfBirth"
+            value={day}
+            onChange={(e) => setDay(e.target.value)}
+          >
+            <option>Select day</option>
+            <Days />
+          </select>
+
+          <label htmlFor="birthHour">Hour:</label>
           <input
             type="number"
             id="birthHour"
             name="birthMinute"
             min="0"
             max="23"
-            value={birthHour}
-            onChange={(e) => setBirthHour(e.target.value)}
+            value={hour}
+            onChange={(e) => setHour(e.target.value)}
             placeholder="0 - 23"
           />
 
-          <label htmlFor="birthMinute">Birth minute:</label>
+          <label htmlFor="birthMinute">Minute:</label>
           <input
             type="number"
             id="birthMinute"
             name="birthMinute"
             min="0"
             max="59"
-            value={birthMinute}
-            onChange={(e) => setBirthMinute(e.target.value)}
-            placeholder="0 - 59"
-          />
-
-          <label htmlFor="birthSecond">Birth second:</label>
-          <input
-            type="number"
-            id="birthSecond"
-            name="birthSecond"
-            min="0"
-            max="59"
-            value={birthSecond}
-            onChange={(e) => setBirthSecond(e.target.value)}
+            value={minute}
+            onChange={(e) => setMinute(e.target.value)}
             placeholder="0 - 59"
           />
 

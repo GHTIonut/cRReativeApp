@@ -44,20 +44,21 @@ export function Profile() {
               <strong>City:</strong> {personalInfo.city}
             </p>
             <p>
-              <strong>Birthday:</strong> {personalInfo.birthDate}
+              <strong>Birthday:</strong> {personalInfo.day}/{personalInfo.month}
+              /{personalInfo.year}
             </p>
             <p>
-              <strong>BirthHour:</strong> {personalInfo.birthHour}
+              <strong>Birth Hour:</strong> {personalInfo.hour}:
+              {personalInfo.minute}
             </p>
             <p>
-              <strong>Birth minute:</strong> {personalInfo.birthMinute}
+              <strong>Zodiac Sign:</strong> {personalInfo.zodiacSign}
             </p>
             <p>
-              <strong>Birth second:</strong> {personalInfo.birthSecond}
+              <strong>Ascendant:</strong> {personalInfo.ascendantSign}
             </p>
           </div>
         )}
-        {/* {<div>Ascendent: {ascendent || "Unknown"}</div>} */}
       </div>
     </>
   );
