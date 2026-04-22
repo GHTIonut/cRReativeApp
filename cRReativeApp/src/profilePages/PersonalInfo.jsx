@@ -81,8 +81,8 @@ export default function PersonalInfoWindow() {
             setDay("");
             setMonth("");
             setYear("");
-            setHour("");
-            setMinute("");
+            setHour(null);
+            setMinute(null);
 
             setTimeout(() => setMessage(""), 5000);
           }}

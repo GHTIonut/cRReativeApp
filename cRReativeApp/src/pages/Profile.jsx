@@ -23,7 +23,11 @@ export function Profile() {
         },
       });
       const data = await res.json();
-      setPersonalInfo(data);
+      setPersonalInfo({
+        ...data.personalInfo,
+        zodiacSign: data.zodiacSign,
+        ascendantSign: data.ascendantSign,
+      });
     }
     getPersonalData();
   }, []);
@@ -38,7 +42,8 @@ export function Profile() {
           <div className="personalInfoDisplay">
             <h2>Your personal info</h2>
             <p>
-              <strong>Country:</strong> {personalInfo.country}
+              <strong>Country:</strong>{" "}
+              {personalInfo.country === "RO" ? "Romania" : null}
             </p>
             <p>
               <strong>City:</strong> {personalInfo.city}
@@ -48,8 +53,9 @@ export function Profile() {
               /{personalInfo.year}
             </p>
             <p>
-              <strong>Birth Hour:</strong> {personalInfo.hour}:
-              {personalInfo.minute}
+              <strong>Birth Hour:</strong>{" "}
+              {personalInfo.hour.toString().padStart(2, "0")}:
+              {personalInfo.hour.toString().padStart(2, "0")}
             </p>
             <p>
               <strong>Zodiac Sign:</strong> {personalInfo.zodiacSign}
