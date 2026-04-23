@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { useContext } from "react";
 import pageLogo1 from "../assets/pageLogo1.png";
+import { HamburgerBtn } from "./HamburgerButton";
 
 export function LoggedOutStatus({ navigate }) {
   return (
@@ -53,6 +54,7 @@ export default function NavBar() {
           <button onClick={() => navigate("/Horoscope")}>Horoscope</button>
           <button onClick={() => navigate("/News")}>Constellations</button>
           {renderAuthSection()}
+          <HamburgerBtn />
         </div>
       </div>
     </header>
