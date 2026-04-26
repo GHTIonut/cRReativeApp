@@ -32,8 +32,6 @@ export default function PersonalInfoWindow() {
 
   return (
     <>
-      <ProfileMenu />
-
       <div className="personalInfoContainer">
         <h1>Update your personal info</h1>
         <form

@@ -40,8 +40,6 @@ export default function LoggedChangePassword() {
 
   return (
     <>
-      <ProfileMenu />
-
       <div className="changePasswordContainer">
         <h1>Change your password</h1>
 

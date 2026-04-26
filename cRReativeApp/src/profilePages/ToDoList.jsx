@@ -151,7 +151,6 @@ export function ToDoList() {
 
   return (
     <>
-      <ProfileMenu />
       <section className="toDoContainer">
         <h1>Your To‑Do List</h1>
 

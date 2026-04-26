@@ -176,8 +176,6 @@ export default function HoroscopeSubscription() {
 
   return (
     <>
-      <ProfileMenu />
-
       <main>
         <section>
           <form className="subscriptionForm">
