@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import hamburgerButton from "../assets/hamburgerButton.png";
 import "../styles/hamburgerButton.css";
 import ProfileMenu from "./ProfileMenu";
 import { Profile } from "../pages/Profile";
+import { AuthContext } from "../Context/AuthContext";
 
 export function HamburgerBtn() {
   const [display, setDisplay] = useState(false);
-  useEffect(() => console.log(display), [display]);
+  const { token } = useContext(AuthContext);
+  if (!token) return;
   return (
     <>
       <div className="hamburgerButtonContainer">

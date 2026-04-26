@@ -27,10 +27,6 @@ export default function ProfileMenu({ closeMenu }) {
         <option value="/HoroscopeSubscription">Horoscope subscription</option>
         <option value="/ToDoList">To-do list</option>
       </select>
-      {/* <button onClick={() => go("/PersonalInfo")}>Personal Info</button>
-      <button onClick={() => go("/ChangePassword")}>Change Password </button>
-      <button onClick={() => go("/HoroscopeSubscription")}>Subscription</button>
-      <button onClick={() => go("/ToDoList")}>To do list</button> */}
     </div>
   );
 }

@@ -34,8 +34,6 @@ export function Profile() {
 
   return (
     <>
-      <ProfileMenu />
-
       <div className="profilePage">
         <h1>Your cosmic space awaits, {user.username}</h1>
         {personalInfo && (

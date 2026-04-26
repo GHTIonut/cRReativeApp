@@ -1,15 +1,16 @@
-.profileMenu {
-  /* background-color: aqua; */
+/* .profileMenu {
+  background-color: aqua;
+  margin: 0.7rem 0rem 0rem 0rem;
 }
 
 .profileMenu select {
-  margin: 10px 0px 10px 0px;
+  margin: 0.6rem 0rem 0rem 0rem;
   width: 12rem;
   height: 2.6rem;
   border: 1px solid rgba(173, 216, 230, 0.6);
   border-radius: 12px;
   color: azure;
-  background: rgba(0, 69, 116, 0.8);
+  background: rgba(0, 69, 116);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 18px;
   display: flex;
@@ -26,4 +27,4 @@
   border-color: black;
   box-shadow: 0 0 18px rgba(0, 206, 221, 0.8);
   transform: translateY(-3px) scale(1.04);
-}
+} */
