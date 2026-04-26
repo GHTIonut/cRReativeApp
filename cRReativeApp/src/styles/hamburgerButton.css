@@ -10,7 +10,7 @@
 .hiddenMenu {
   position: fixed;
   top: 4.5rem;
-  right: 0rem;
+  right: 0.5rem;
   display: flex;
   /* background-color: aqua; */
   width: 10%;
