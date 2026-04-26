@@ -54,8 +54,8 @@ export default function NavBar() {
           <button onClick={() => navigate("/Horoscope")}>Horoscope</button>
           <button onClick={() => navigate("/News")}>Constellations</button>
           {renderAuthSection()}
-          <HamburgerBtn />
         </div>
+        <HamburgerBtn />
       </div>
     </header>
   );

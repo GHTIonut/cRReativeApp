@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/profileMenu.css";
 
-export default function ProfileMenu() {
+export default function ProfileMenu({ closeMenu }) {
   const navigate = useNavigate();
+  const go = (path) => {
+    navigate(path);
+    closeMenu();
+  };
 
   return (
     <div className="profileMenu">
-      <button onClick={() => navigate("/PersonalInfo")}>Personal Info</button>
-      <button onClick={() => navigate("/ChangePassword")}>
-        Change Password{" "}
-      </button>
-      <button onClick={() => navigate("/HoroscopeSubscription")}>
-        Subscription
-      </button>
-      <button onClick={() => navigate("/ToDoList")}>To do list</button>
+      <button onClick={() => go("/PersonalInfo")}>Personal Info</button>
+      <button onClick={() => go("/ChangePassword")}>Change Password </button>
+      <button onClick={() => go("/HoroscopeSubscription")}>Subscription</button>
+      <button onClick={() => go("/ToDoList")}>To do list</button>
     </div>
   );
 }

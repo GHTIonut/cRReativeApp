@@ -1,17 +1,17 @@
 .profileMenu {
-  background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 120px);
+  /* background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 42, 77) 120px);
   width: 100vw;
   display: flex;
-  position: static;
+  position: absolute;
   top: 64px;
   left: 0px;
   justify-content: center;
   gap: 2rem;
   backdrop-filter: blur(4px);
-  margin-top: 65px;
+  margin-top: 65px; */
 }
 
-.profileMenu button {
+/* .profileMenu button {
   margin: 10px 0px 10px 0px;
   width: 12rem;
   height: 2.6rem;
@@ -35,4 +35,4 @@
   border-color: black;
   box-shadow: 0 0 18px rgba(0, 206, 221, 0.8);
   transform: translateY(-3px) scale(1.04);
-}
+} */

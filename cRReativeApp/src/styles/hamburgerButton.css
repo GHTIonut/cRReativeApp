@@ -2,3 +2,20 @@
   width: 3.8rem;
   cursor: pointer;
 }
+
+.hamburgerButtonContainer {
+  margin-right: 1rem;
+}
+
+.hiddenMenu {
+  position: fixed;
+  top: 4.5rem;
+  right: 0rem;
+  display: flex;
+  /* background-color: aqua; */
+  width: 10%;
+}
+
+.hiddenMenu button {
+  width: 100%;
+}
